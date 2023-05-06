@@ -1,0 +1,13 @@
+2023-05-06 17:03:20,038 INFO org.springframework.boot.StartupInfoLogger [restartedMain] Starting GstPortalApiApplication using Java 1.8.0_202 on LAPTOP-273708ED with PID 18824 (D:\Interlogz\GstPortalApi\Development\GstPortalApi\target\classes started by Abdul in D:\Interlogz\GstPortalApi\Development\GstPortalApi)
+2023-05-06 17:03:20,044 DEBUG org.springframework.boot.StartupInfoLogger [restartedMain] Running with Spring Boot v2.5.2, Spring v5.3.8
+2023-05-06 17:03:20,045 INFO org.springframework.boot.SpringApplication [restartedMain] No active profile set, falling back to default profiles: default
+2023-05-06 17:03:48,848 DEBUG org.springframework.web.filter.GenericFilterBean [restartedMain] Filter 'requestLoggingFilter' configured for use
+2023-05-06 17:03:48,850 DEBUG org.springframework.web.filter.GenericFilterBean [restartedMain] Filter 'jwtRequestFilter' configured for use
+2023-05-06 17:03:52,387 INFO org.springframework.boot.StartupInfoLogger [restartedMain] Started GstPortalApiApplication in 34.432 seconds (JVM running for 37.336)
+2023-05-06 17:03:57,053 DEBUG org.springframework.web.filter.CommonsRequestLoggingFilter [http-nio-8888-exec-1] Before request [GET /api/v1/ping, client=0:0:0:0:0:0:0:1]
+2023-05-06 17:03:57,283 DEBUG org.springframework.web.filter.CommonsRequestLoggingFilter [http-nio-8888-exec-1] After request [GET /api/v1/ping, client=0:0:0:0:0:0:0:1]
+2023-05-06 17:04:11,484 DEBUG org.springframework.web.filter.CommonsRequestLoggingFilter [http-nio-8888-exec-5] Before request [POST /api/v1/auth/login, client=0:0:0:0:0:0:0:1]
+2023-05-06 17:04:13,415 DEBUG org.springframework.web.filter.CommonsRequestLoggingFilter [http-nio-8888-exec-5] After request [POST /api/v1/auth/login, client=0:0:0:0:0:0:0:1, payload={
+    "userId":"abdul",
+    "password":"1234"
+}]
