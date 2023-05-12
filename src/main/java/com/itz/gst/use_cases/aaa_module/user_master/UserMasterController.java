@@ -6,7 +6,7 @@ import com.itz.gst.helpers.common.results.ResultDao;
 import com.itz.gst.helpers.common.results.ResultsDao;
 import com.itz.gst.helpers.common.token.ClaimsDao;
 import com.itz.gst.helpers.common.token.ClaimsSet;
-import com.itz.gst.persistence.models.aaa_module.UserMaster;
+import com.itz.gst.entity.UserMaster;
 import com.itz.gst.use_cases.aaa_module.auth.dao.CustomerMasterIdDao;
 import com.itz.gst.use_cases.aaa_module.user_master.dao.UserMasterDao;
 import com.itz.gst.use_cases.aaa_module.user_master.dao.UserMasterIdDao;
@@ -42,8 +42,6 @@ public class UserMasterController {
 			UserMaster userMaster = userMasterModel.setUserMaster(val,2);
 			userMasterService.setUserMasterDetails(userMaster);
 			return new ResponseEntity<>(new ResultDao(new ModelMapper().map(userMaster, CustomerMasterIdDao.class), "User Created Successfully", true), HttpStatus.OK);
-		} else if (!userMaster1.getIsActive()) {
-			throw new Exception("Value Set But Not Activated ,Please Call Admin");
 		} else {
 			throw new Exception("Value Already Set");
 		}
@@ -63,12 +61,7 @@ public class UserMasterController {
 
 		userMasterGet.setPassword(val.getPassword());
 		userMasterGet.setDesignation(UseCasesConstant.roleMasterName[1]);
-		userMasterGet.setRoleMasterId(1);
-		userMasterGet.setPhoneNumber(val.getPhoneNumber());
-		userMasterGet.setUserName(val.getUserName());
-		userMasterGet.setIsActive(val.getIsActive());
-		userMasterGet.setEmail(val.getEmail());
-		userMasterGet.setUpBy(claimsDao.getUsr());
+
 //		userMasterGet.getUserRole().setRoleMasterId(2);
 //		userMasterGet.getUserRole().setUpBy(val.getUserId());
 		userMasterService.setUserMasterDetails(userMasterGet);

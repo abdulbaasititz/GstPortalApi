@@ -3,7 +3,8 @@ package com.itz.gst.helpers.common.token;
 import com.fasterxml.jackson.core.JsonProcessingException;
 import com.fasterxml.jackson.databind.ObjectMapper;
 import com.itz.gst.helpers.utils.JwtUtil;
-import com.itz.gst.persistence.models.aaa_module.UserMaster;
+import com.itz.gst.entity.UserMaster;
+import com.itz.gst.use_cases.aaa_module.auth.dao.ClaimsDetDao;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.security.authentication.BadCredentialsException;
 import org.springframework.stereotype.Service;
@@ -26,11 +27,11 @@ public class ClaimsSet {
 //        return true;
 //    }
 
-    public static Map<String, Object> setClaimsDetails(UserMaster userDao) {
+    public static Map<String, Object> setClaimsDetails(ClaimsDetDao userDao) {
         Map<String, Object> claims = new HashMap<>();
-        claims.put("rol", userDao.getRoleMasterId());
-        claims.put("usr", userDao.getId());
-        claims.put("plt", "ITZ");
+        claims.put("gst", userDao.getGst());
+        claims.put("usr", userDao.getUsr());
+        claims.put("plt", userDao.getPlt());
         return claims;
     }
 

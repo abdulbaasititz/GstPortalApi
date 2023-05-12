@@ -1,7 +1,7 @@
 package com.itz.gst.helpers.utils;
 
 
-import com.itz.gst.persistence.models.aaa_module.UserMaster;
+import com.itz.gst.entity.UserMaster;
 import io.jsonwebtoken.Claims;
 import io.jsonwebtoken.Jwts;
 import io.jsonwebtoken.SignatureAlgorithm;
@@ -59,9 +59,9 @@ public class JwtUtil implements Serializable {
     }
 
     //generate token for user
-    public String generateAccessToken(UserMaster userDetails, Map<String, Object> claims) {
-        setOrgDetails(userDetails.getDesignation(), userDetails.getUserId());
-        return doGenerateToken(claims, userDetails.getUserId(), JWT_TOKEN_VALIDITY);
+    public String generateAccessToken(Map<String, Object> claims,String sub) {
+        //setOrgDetails(userDetails.getDesignation(), userDetails.getUserId());
+        return doGenerateToken(claims, sub, JWT_TOKEN_VALIDITY);
     }
 
     public String generateAccessToken(String userName, Map<String, Object> claims) {

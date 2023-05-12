@@ -1,13 +1,434 @@
-2023-05-06 17:03:20,038 INFO org.springframework.boot.StartupInfoLogger [restartedMain] Starting GstPortalApiApplication using Java 1.8.0_202 on LAPTOP-273708ED with PID 18824 (D:\Interlogz\GstPortalApi\Development\GstPortalApi\target\classes started by Abdul in D:\Interlogz\GstPortalApi\Development\GstPortalApi)
-2023-05-06 17:03:20,044 DEBUG org.springframework.boot.StartupInfoLogger [restartedMain] Running with Spring Boot v2.5.2, Spring v5.3.8
-2023-05-06 17:03:20,045 INFO org.springframework.boot.SpringApplication [restartedMain] No active profile set, falling back to default profiles: default
-2023-05-06 17:03:48,848 DEBUG org.springframework.web.filter.GenericFilterBean [restartedMain] Filter 'requestLoggingFilter' configured for use
-2023-05-06 17:03:48,850 DEBUG org.springframework.web.filter.GenericFilterBean [restartedMain] Filter 'jwtRequestFilter' configured for use
-2023-05-06 17:03:52,387 INFO org.springframework.boot.StartupInfoLogger [restartedMain] Started GstPortalApiApplication in 34.432 seconds (JVM running for 37.336)
-2023-05-06 17:03:57,053 DEBUG org.springframework.web.filter.CommonsRequestLoggingFilter [http-nio-8888-exec-1] Before request [GET /api/v1/ping, client=0:0:0:0:0:0:0:1]
-2023-05-06 17:03:57,283 DEBUG org.springframework.web.filter.CommonsRequestLoggingFilter [http-nio-8888-exec-1] After request [GET /api/v1/ping, client=0:0:0:0:0:0:0:1]
-2023-05-06 17:04:11,484 DEBUG org.springframework.web.filter.CommonsRequestLoggingFilter [http-nio-8888-exec-5] Before request [POST /api/v1/auth/login, client=0:0:0:0:0:0:0:1]
-2023-05-06 17:04:13,415 DEBUG org.springframework.web.filter.CommonsRequestLoggingFilter [http-nio-8888-exec-5] After request [POST /api/v1/auth/login, client=0:0:0:0:0:0:0:1, payload={
+2023-05-13 00:01:51,283 INFO org.springframework.boot.StartupInfoLogger [restartedMain] Starting GstPortalApiApplication using Java 1.8.0_202 on LAPTOP-273708ED with PID 7740 (D:\Interlogz\GstPortalApi\Development\GstPortalApi\target\classes started by Abdul in D:\Interlogz\GstPortalApi\Development\GstPortalApi)
+2023-05-13 00:01:51,299 DEBUG org.springframework.boot.StartupInfoLogger [restartedMain] Running with Spring Boot v2.5.2, Spring v5.3.8
+2023-05-13 00:01:51,299 INFO org.springframework.boot.SpringApplication [restartedMain] No active profile set, falling back to default profiles: default
+2023-05-13 00:02:10,885 DEBUG org.springframework.web.filter.GenericFilterBean [restartedMain] Filter 'requestLoggingFilter' configured for use
+2023-05-13 00:02:10,885 DEBUG org.springframework.web.filter.GenericFilterBean [restartedMain] Filter 'jwtRequestFilter' configured for use
+2023-05-13 00:02:12,602 INFO org.springframework.boot.StartupInfoLogger [restartedMain] Started GstPortalApiApplication in 22.274 seconds (JVM running for 23.444)
+2023-05-13 00:02:20,684 DEBUG org.springframework.web.filter.CommonsRequestLoggingFilter [http-nio-9001-exec-1] Before request [POST /api/v1/auth/login, client=0:0:0:0:0:0:0:1]
+2023-05-13 00:02:20,997 DEBUG org.springframework.web.filter.CommonsRequestLoggingFilter [http-nio-9001-exec-1] After request [POST /api/v1/auth/login, client=0:0:0:0:0:0:0:1, payload={
     "userId":"abdul",
-    "password":"1234"
-}]
+    "password":"",
+    ]
+2023-05-13 00:03:29,748 INFO org.springframework.boot.StartupInfoLogger [restartedMain] Starting GstPortalApiApplication using Java 1.8.0_202 on LAPTOP-273708ED with PID 23516 (D:\Interlogz\GstPortalApi\Development\GstPortalApi\target\classes started by Abdul in D:\Interlogz\GstPortalApi\Development\GstPortalApi)
+2023-05-13 00:03:29,748 DEBUG org.springframework.boot.StartupInfoLogger [restartedMain] Running with Spring Boot v2.5.2, Spring v5.3.8
+2023-05-13 00:03:29,748 INFO org.springframework.boot.SpringApplication [restartedMain] No active profile set, falling back to default profiles: default
+2023-05-13 00:04:04,368 DEBUG org.springframework.web.filter.GenericFilterBean [restartedMain] Filter 'requestLoggingFilter' configured for use
+2023-05-13 00:04:04,368 DEBUG org.springframework.web.filter.GenericFilterBean [restartedMain] Filter 'jwtRequestFilter' configured for use
+2023-05-13 00:04:06,832 INFO org.springframework.boot.StartupInfoLogger [restartedMain] Started GstPortalApiApplication in 37.934 seconds (JVM running for 39.258)
+2023-05-13 00:04:16,039 DEBUG org.springframework.web.filter.CommonsRequestLoggingFilter [http-nio-9001-exec-1] Before request [POST /api/v1/auth/login, client=0:0:0:0:0:0:0:1]
+2023-05-13 00:04:16,275 DEBUG org.springframework.web.filter.CommonsRequestLoggingFilter [http-nio-9001-exec-1] After request [POST /api/v1/auth/login, client=0:0:0:0:0:0:0:1, payload={
+    "userId":"",
+    "password":"1234",
+    "]
+2023-05-13 00:04:26,373 DEBUG org.springframework.web.filter.CommonsRequestLoggingFilter [http-nio-9001-exec-5] Before request [POST /api/v1/auth/login, client=0:0:0:0:0:0:0:1]
+2023-05-13 00:04:26,378 DEBUG org.springframework.web.filter.CommonsRequestLoggingFilter [http-nio-9001-exec-5] After request [POST /api/v1/auth/login, client=0:0:0:0:0:0:0:1, payload={
+    "userId":"abdul",
+    "password":"1234",
+]
+2023-05-13 00:04:51,520 DEBUG org.springframework.web.filter.CommonsRequestLoggingFilter [http-nio-9001-exec-6] Before request [POST /api/v1/auth/login, client=0:0:0:0:0:0:0:1]
+2023-05-13 00:04:51,852 DEBUG org.springframework.web.filter.CommonsRequestLoggingFilter [http-nio-9001-exec-6] After request [POST /api/v1/auth/login, client=0:0:0:0:0:0:0:1, payload={
+    "userId":"abdul",
+    "password":"1234",
+]
+2023-05-13 00:04:57,055 DEBUG org.springframework.web.filter.CommonsRequestLoggingFilter [http-nio-9001-exec-7] Before request [POST /api/v1/auth/login, client=0:0:0:0:0:0:0:1]
+2023-05-13 00:04:57,133 DEBUG org.springframework.web.filter.CommonsRequestLoggingFilter [http-nio-9001-exec-7] After request [POST /api/v1/auth/login, client=0:0:0:0:0:0:0:1, payload={
+    "userId":"abdul",
+    "password":"1234",
+]
+2023-05-13 00:06:17,502 DEBUG org.springframework.web.filter.CommonsRequestLoggingFilter [http-nio-9001-exec-10] Before request [POST /api/v1/auth/login, client=0:0:0:0:0:0:0:1]
+2023-05-13 00:06:17,518 DEBUG org.springframework.web.filter.CommonsRequestLoggingFilter [http-nio-9001-exec-10] After request [POST /api/v1/auth/login, client=0:0:0:0:0:0:0:1, payload={
+    "userId":"",
+    "password":"1234",
+    "]
+2023-05-13 00:08:24,223 DEBUG org.springframework.web.filter.CommonsRequestLoggingFilter [http-nio-9001-exec-3] Before request [GET /api/v1/gst/123, client=0:0:0:0:0:0:0:1]
+2023-05-13 00:08:24,247 DEBUG org.springframework.web.filter.CommonsRequestLoggingFilter [http-nio-9001-exec-3] After request [GET /api/v1/gst/123, client=0:0:0:0:0:0:0:1]
+2023-05-13 00:09:35,575 INFO org.springframework.boot.StartupInfoLogger [restartedMain] Starting GstPortalApiApplication using Java 1.8.0_202 on LAPTOP-273708ED with PID 18232 (D:\Interlogz\GstPortalApi\Development\GstPortalApi\target\classes started by Abdul in D:\Interlogz\GstPortalApi\Development\GstPortalApi)
+2023-05-13 00:09:35,581 DEBUG org.springframework.boot.StartupInfoLogger [restartedMain] Running with Spring Boot v2.5.2, Spring v5.3.8
+2023-05-13 00:09:35,581 INFO org.springframework.boot.SpringApplication [restartedMain] No active profile set, falling back to default profiles: default
+2023-05-13 00:09:44,951 DEBUG org.springframework.web.filter.GenericFilterBean [restartedMain] Filter 'requestLoggingFilter' configured for use
+2023-05-13 00:09:44,953 DEBUG org.springframework.web.filter.GenericFilterBean [restartedMain] Filter 'jwtRequestFilter' configured for use
+2023-05-13 00:09:47,166 INFO org.springframework.boot.StartupInfoLogger [restartedMain] Started GstPortalApiApplication in 12.403 seconds (JVM running for 13.644)
+2023-05-13 00:10:17,924 DEBUG org.springframework.web.filter.CommonsRequestLoggingFilter [http-nio-9001-exec-1] Before request [GET /api/v1/gst/123, client=0:0:0:0:0:0:0:1]
+2023-05-13 00:10:31,098 DEBUG org.springframework.web.filter.CommonsRequestLoggingFilter [http-nio-9001-exec-1] After request [GET /api/v1/gst/123, client=0:0:0:0:0:0:0:1]
+2023-05-13 00:11:47,381 INFO org.springframework.boot.StartupInfoLogger [restartedMain] Starting GstPortalApiApplication using Java 1.8.0_202 on LAPTOP-273708ED with PID 11616 (D:\Interlogz\GstPortalApi\Development\GstPortalApi\target\classes started by Abdul in D:\Interlogz\GstPortalApi\Development\GstPortalApi)
+2023-05-13 00:11:47,389 DEBUG org.springframework.boot.StartupInfoLogger [restartedMain] Running with Spring Boot v2.5.2, Spring v5.3.8
+2023-05-13 00:11:47,389 INFO org.springframework.boot.SpringApplication [restartedMain] No active profile set, falling back to default profiles: default
+2023-05-13 00:11:58,646 DEBUG org.springframework.web.filter.GenericFilterBean [restartedMain] Filter 'requestLoggingFilter' configured for use
+2023-05-13 00:11:58,648 DEBUG org.springframework.web.filter.GenericFilterBean [restartedMain] Filter 'jwtRequestFilter' configured for use
+2023-05-13 00:12:01,843 INFO org.springframework.boot.StartupInfoLogger [restartedMain] Started GstPortalApiApplication in 15.752 seconds (JVM running for 17.201)
+2023-05-13 00:12:05,853 DEBUG org.springframework.web.filter.CommonsRequestLoggingFilter [http-nio-9001-exec-2] Before request [GET /api/v1/gst/123, client=0:0:0:0:0:0:0:1]
+2023-05-13 00:13:01,204 DEBUG org.springframework.web.filter.CommonsRequestLoggingFilter [http-nio-9001-exec-2] After request [GET /api/v1/gst/123, client=0:0:0:0:0:0:0:1]
+2023-05-13 01:07:06,907 INFO org.springframework.boot.StartupInfoLogger [restartedMain] Starting GstPortalApiApplication using Java 1.8.0_202 on LAPTOP-273708ED with PID 22688 (D:\Interlogz\GstPortalApi\Development\GstPortalApi\target\classes started by Abdul in D:\Interlogz\GstPortalApi\Development\GstPortalApi)
+2023-05-13 01:07:06,914 DEBUG org.springframework.boot.StartupInfoLogger [restartedMain] Running with Spring Boot v2.5.2, Spring v5.3.8
+2023-05-13 01:07:06,915 INFO org.springframework.boot.SpringApplication [restartedMain] No active profile set, falling back to default profiles: default
+2023-05-13 01:07:15,675 ERROR com.zaxxer.hikari.pool.HikariPool [restartedMain] HikariPool-1 - Exception during pool initialization.
+com.microsoft.sqlserver.jdbc.SQLServerException: Cannot open database "SCAN2TRACK?connectionTimeZone=IST" requested by the login. The login failed. ClientConnectionId:cd8418e7-5aa7-4997-a787-b450a2b161fe
+	at com.microsoft.sqlserver.jdbc.SQLServerException.makeFromDatabaseError(SQLServerException.java:262)
+	at com.microsoft.sqlserver.jdbc.TDSTokenHandler.onEOF(tdsparser.java:283)
+	at com.microsoft.sqlserver.jdbc.TDSParser.parse(tdsparser.java:129)
+	at com.microsoft.sqlserver.jdbc.TDSParser.parse(tdsparser.java:37)
+	at com.microsoft.sqlserver.jdbc.SQLServerConnection.sendLogon(SQLServerConnection.java:5333)
+	at com.microsoft.sqlserver.jdbc.SQLServerConnection.logon(SQLServerConnection.java:4066)
+	at com.microsoft.sqlserver.jdbc.SQLServerConnection.access$000(SQLServerConnection.java:85)
+	at com.microsoft.sqlserver.jdbc.SQLServerConnection$LogonCommand.doExecute(SQLServerConnection.java:4004)
+	at com.microsoft.sqlserver.jdbc.TDSCommand.execute(IOBuffer.java:7418)
+	at com.microsoft.sqlserver.jdbc.SQLServerConnection.executeCommand(SQLServerConnection.java:3272)
+	at com.microsoft.sqlserver.jdbc.SQLServerConnection.connectHelper(SQLServerConnection.java:2768)
+	at com.microsoft.sqlserver.jdbc.SQLServerConnection.login(SQLServerConnection.java:2418)
+	at com.microsoft.sqlserver.jdbc.SQLServerConnection.connectInternal(SQLServerConnection.java:2265)
+	at com.microsoft.sqlserver.jdbc.SQLServerConnection.connect(SQLServerConnection.java:1291)
+	at com.microsoft.sqlserver.jdbc.SQLServerDriver.connect(SQLServerDriver.java:881)
+	at com.zaxxer.hikari.util.DriverDataSource.getConnection(DriverDataSource.java:138)
+	at com.zaxxer.hikari.pool.PoolBase.newConnection(PoolBase.java:364)
+	at com.zaxxer.hikari.pool.PoolBase.newPoolEntry(PoolBase.java:206)
+	at com.zaxxer.hikari.pool.HikariPool.createPoolEntry(HikariPool.java:476)
+	at com.zaxxer.hikari.pool.HikariPool.checkFailFast(HikariPool.java:561)
+	at com.zaxxer.hikari.pool.HikariPool.<init>(HikariPool.java:115)
+	at com.zaxxer.hikari.HikariDataSource.getConnection(HikariDataSource.java:112)
+	at org.hibernate.engine.jdbc.connections.internal.DatasourceConnectionProviderImpl.getConnection(DatasourceConnectionProviderImpl.java:122)
+	at org.hibernate.engine.jdbc.env.internal.JdbcEnvironmentInitiator$ConnectionProviderJdbcConnectionAccess.obtainConnection(JdbcEnvironmentInitiator.java:180)
+	at org.hibernate.engine.jdbc.env.internal.JdbcEnvironmentInitiator.initiateService(JdbcEnvironmentInitiator.java:68)
+	at org.hibernate.engine.jdbc.env.internal.JdbcEnvironmentInitiator.initiateService(JdbcEnvironmentInitiator.java:35)
+	at org.hibernate.boot.registry.internal.StandardServiceRegistryImpl.initiateService(StandardServiceRegistryImpl.java:101)
+	at org.hibernate.service.internal.AbstractServiceRegistryImpl.createService(AbstractServiceRegistryImpl.java:263)
+	at org.hibernate.service.internal.AbstractServiceRegistryImpl.initializeService(AbstractServiceRegistryImpl.java:237)
+	at org.hibernate.service.internal.AbstractServiceRegistryImpl.getService(AbstractServiceRegistryImpl.java:214)
+	at org.hibernate.id.factory.internal.DefaultIdentifierGeneratorFactory.injectServices(DefaultIdentifierGeneratorFactory.java:152)
+	at org.hibernate.service.internal.AbstractServiceRegistryImpl.injectDependencies(AbstractServiceRegistryImpl.java:286)
+	at org.hibernate.service.internal.AbstractServiceRegistryImpl.initializeService(AbstractServiceRegistryImpl.java:243)
+	at org.hibernate.service.internal.AbstractServiceRegistryImpl.getService(AbstractServiceRegistryImpl.java:214)
+	at org.hibernate.boot.internal.InFlightMetadataCollectorImpl.<init>(InFlightMetadataCollectorImpl.java:176)
+	at org.hibernate.boot.model.process.spi.MetadataBuildingProcess.complete(MetadataBuildingProcess.java:127)
+	at org.hibernate.jpa.boot.internal.EntityManagerFactoryBuilderImpl.metadata(EntityManagerFactoryBuilderImpl.java:1224)
+	at org.hibernate.jpa.boot.internal.EntityManagerFactoryBuilderImpl.build(EntityManagerFactoryBuilderImpl.java:1255)
+	at org.springframework.orm.jpa.vendor.SpringHibernateJpaPersistenceProvider.createContainerEntityManagerFactory(SpringHibernateJpaPersistenceProvider.java:58)
+	at org.springframework.orm.jpa.LocalContainerEntityManagerFactoryBean.createNativeEntityManagerFactory(LocalContainerEntityManagerFactoryBean.java:365)
+	at org.springframework.orm.jpa.AbstractEntityManagerFactoryBean.buildNativeEntityManagerFactory(AbstractEntityManagerFactoryBean.java:409)
+	at org.springframework.orm.jpa.AbstractEntityManagerFactoryBean.afterPropertiesSet(AbstractEntityManagerFactoryBean.java:396)
+	at org.springframework.orm.jpa.LocalContainerEntityManagerFactoryBean.afterPropertiesSet(LocalContainerEntityManagerFactoryBean.java:341)
+	at org.springframework.beans.factory.support.AbstractAutowireCapableBeanFactory.invokeInitMethods(AbstractAutowireCapableBeanFactory.java:1845)
+	at org.springframework.beans.factory.support.AbstractAutowireCapableBeanFactory.initializeBean(AbstractAutowireCapableBeanFactory.java:1782)
+	at org.springframework.beans.factory.support.AbstractAutowireCapableBeanFactory.doCreateBean(AbstractAutowireCapableBeanFactory.java:602)
+	at org.springframework.beans.factory.support.AbstractAutowireCapableBeanFactory.createBean(AbstractAutowireCapableBeanFactory.java:524)
+	at org.springframework.beans.factory.support.AbstractBeanFactory.lambda$doGetBean$0(AbstractBeanFactory.java:335)
+	at org.springframework.beans.factory.support.DefaultSingletonBeanRegistry.getSingleton(DefaultSingletonBeanRegistry.java:234)
+	at org.springframework.beans.factory.support.AbstractBeanFactory.doGetBean(AbstractBeanFactory.java:333)
+	at org.springframework.beans.factory.support.AbstractBeanFactory.getBean(AbstractBeanFactory.java:208)
+	at org.springframework.beans.factory.support.BeanDefinitionValueResolver.resolveReference(BeanDefinitionValueResolver.java:330)
+	at org.springframework.beans.factory.support.BeanDefinitionValueResolver.resolveValueIfNecessary(BeanDefinitionValueResolver.java:113)
+	at org.springframework.beans.factory.support.ConstructorResolver.resolveConstructorArguments(ConstructorResolver.java:693)
+	at org.springframework.beans.factory.support.ConstructorResolver.instantiateUsingFactoryMethod(ConstructorResolver.java:510)
+	at org.springframework.beans.factory.support.AbstractAutowireCapableBeanFactory.instantiateUsingFactoryMethod(AbstractAutowireCapableBeanFactory.java:1334)
+	at org.springframework.beans.factory.support.AbstractAutowireCapableBeanFactory.createBeanInstance(AbstractAutowireCapableBeanFactory.java:1177)
+	at org.springframework.beans.factory.support.AbstractAutowireCapableBeanFactory.doCreateBean(AbstractAutowireCapableBeanFactory.java:564)
+	at org.springframework.beans.factory.support.AbstractAutowireCapableBeanFactory.createBean(AbstractAutowireCapableBeanFactory.java:524)
+	at org.springframework.beans.factory.support.BeanDefinitionValueResolver.resolveInnerBean(BeanDefinitionValueResolver.java:374)
+	at org.springframework.beans.factory.support.BeanDefinitionValueResolver.resolveValueIfNecessary(BeanDefinitionValueResolver.java:134)
+	at org.springframework.beans.factory.support.AbstractAutowireCapableBeanFactory.applyPropertyValues(AbstractAutowireCapableBeanFactory.java:1689)
+	at org.springframework.beans.factory.support.AbstractAutowireCapableBeanFactory.populateBean(AbstractAutowireCapableBeanFactory.java:1434)
+	at org.springframework.beans.factory.support.AbstractAutowireCapableBeanFactory.doCreateBean(AbstractAutowireCapableBeanFactory.java:601)
+	at org.springframework.beans.factory.support.AbstractAutowireCapableBeanFactory.createBean(AbstractAutowireCapableBeanFactory.java:524)
+	at org.springframework.beans.factory.support.AbstractBeanFactory.lambda$doGetBean$0(AbstractBeanFactory.java:335)
+	at org.springframework.beans.factory.support.DefaultSingletonBeanRegistry.getSingleton(DefaultSingletonBeanRegistry.java:234)
+	at org.springframework.beans.factory.support.AbstractBeanFactory.doGetBean(AbstractBeanFactory.java:333)
+	at org.springframework.beans.factory.support.AbstractBeanFactory.getBean(AbstractBeanFactory.java:208)
+	at org.springframework.beans.factory.config.DependencyDescriptor.resolveCandidate(DependencyDescriptor.java:276)
+	at org.springframework.beans.factory.support.DefaultListableBeanFactory.doResolveDependency(DefaultListableBeanFactory.java:1380)
+	at org.springframework.beans.factory.support.DefaultListableBeanFactory.resolveDependency(DefaultListableBeanFactory.java:1300)
+	at org.springframework.beans.factory.annotation.AutowiredAnnotationBeanPostProcessor$AutowiredFieldElement.resolveFieldValue(AutowiredAnnotationBeanPostProcessor.java:657)
+	at org.springframework.beans.factory.annotation.AutowiredAnnotationBeanPostProcessor$AutowiredFieldElement.inject(AutowiredAnnotationBeanPostProcessor.java:640)
+	at org.springframework.beans.factory.annotation.InjectionMetadata.inject(InjectionMetadata.java:119)
+	at org.springframework.beans.factory.annotation.AutowiredAnnotationBeanPostProcessor.postProcessProperties(AutowiredAnnotationBeanPostProcessor.java:399)
+	at org.springframework.beans.factory.support.AbstractAutowireCapableBeanFactory.populateBean(AbstractAutowireCapableBeanFactory.java:1413)
+	at org.springframework.beans.factory.support.AbstractAutowireCapableBeanFactory.doCreateBean(AbstractAutowireCapableBeanFactory.java:601)
+	at org.springframework.beans.factory.support.AbstractAutowireCapableBeanFactory.createBean(AbstractAutowireCapableBeanFactory.java:524)
+	at org.springframework.beans.factory.support.AbstractBeanFactory.lambda$doGetBean$0(AbstractBeanFactory.java:335)
+	at org.springframework.beans.factory.support.DefaultSingletonBeanRegistry.getSingleton(DefaultSingletonBeanRegistry.java:234)
+	at org.springframework.beans.factory.support.AbstractBeanFactory.doGetBean(AbstractBeanFactory.java:333)
+	at org.springframework.beans.factory.support.AbstractBeanFactory.getBean(AbstractBeanFactory.java:208)
+	at org.springframework.beans.factory.config.DependencyDescriptor.resolveCandidate(DependencyDescriptor.java:276)
+	at org.springframework.beans.factory.support.DefaultListableBeanFactory.doResolveDependency(DefaultListableBeanFactory.java:1380)
+	at org.springframework.beans.factory.support.DefaultListableBeanFactory.resolveDependency(DefaultListableBeanFactory.java:1300)
+	at org.springframework.beans.factory.annotation.AutowiredAnnotationBeanPostProcessor$AutowiredFieldElement.resolveFieldValue(AutowiredAnnotationBeanPostProcessor.java:657)
+	at org.springframework.beans.factory.annotation.AutowiredAnnotationBeanPostProcessor$AutowiredFieldElement.inject(AutowiredAnnotationBeanPostProcessor.java:640)
+	at org.springframework.beans.factory.annotation.InjectionMetadata.inject(InjectionMetadata.java:119)
+	at org.springframework.beans.factory.annotation.AutowiredAnnotationBeanPostProcessor.postProcessProperties(AutowiredAnnotationBeanPostProcessor.java:399)
+	at org.springframework.beans.factory.support.AbstractAutowireCapableBeanFactory.populateBean(AbstractAutowireCapableBeanFactory.java:1413)
+	at org.springframework.beans.factory.support.AbstractAutowireCapableBeanFactory.doCreateBean(AbstractAutowireCapableBeanFactory.java:601)
+	at org.springframework.beans.factory.support.AbstractAutowireCapableBeanFactory.createBean(AbstractAutowireCapableBeanFactory.java:524)
+	at org.springframework.beans.factory.support.AbstractBeanFactory.lambda$doGetBean$0(AbstractBeanFactory.java:335)
+	at org.springframework.beans.factory.support.DefaultSingletonBeanRegistry.getSingleton(DefaultSingletonBeanRegistry.java:234)
+	at org.springframework.beans.factory.support.AbstractBeanFactory.doGetBean(AbstractBeanFactory.java:333)
+	at org.springframework.beans.factory.support.AbstractBeanFactory.getBean(AbstractBeanFactory.java:213)
+	at org.springframework.boot.web.servlet.ServletContextInitializerBeans.getOrderedBeansOfType(ServletContextInitializerBeans.java:212)
+	at org.springframework.boot.web.servlet.ServletContextInitializerBeans.addAsRegistrationBean(ServletContextInitializerBeans.java:175)
+	at org.springframework.boot.web.servlet.ServletContextInitializerBeans.addAsRegistrationBean(ServletContextInitializerBeans.java:170)
+	at org.springframework.boot.web.servlet.ServletContextInitializerBeans.addAdaptableBeans(ServletContextInitializerBeans.java:155)
+	at org.springframework.boot.web.servlet.ServletContextInitializerBeans.<init>(ServletContextInitializerBeans.java:87)
+	at org.springframework.boot.web.servlet.context.ServletWebServerApplicationContext.getServletContextInitializerBeans(ServletWebServerApplicationContext.java:260)
+	at org.springframework.boot.web.servlet.context.ServletWebServerApplicationContext.selfInitialize(ServletWebServerApplicationContext.java:234)
+	at org.springframework.boot.web.embedded.tomcat.TomcatStarter.onStartup(TomcatStarter.java:53)
+	at org.apache.catalina.core.StandardContext.startInternal(StandardContext.java:5219)
+	at org.apache.catalina.util.LifecycleBase.start(LifecycleBase.java:183)
+	at org.apache.catalina.core.ContainerBase$StartChild.call(ContainerBase.java:1398)
+	at org.apache.catalina.core.ContainerBase$StartChild.call(ContainerBase.java:1388)
+	at java.util.concurrent.FutureTask.run$$$capture(FutureTask.java:266)
+	at java.util.concurrent.FutureTask.run(FutureTask.java)
+	at org.apache.tomcat.util.threads.InlineExecutorService.execute(InlineExecutorService.java:75)
+	at java.util.concurrent.AbstractExecutorService.submit(AbstractExecutorService.java:134)
+	at org.apache.catalina.core.ContainerBase.startInternal(ContainerBase.java:921)
+	at org.apache.catalina.core.StandardHost.startInternal(StandardHost.java:835)
+	at org.apache.catalina.util.LifecycleBase.start(LifecycleBase.java:183)
+	at org.apache.catalina.core.ContainerBase$StartChild.call(ContainerBase.java:1398)
+	at org.apache.catalina.core.ContainerBase$StartChild.call(ContainerBase.java:1388)
+	at java.util.concurrent.FutureTask.run$$$capture(FutureTask.java:266)
+	at java.util.concurrent.FutureTask.run(FutureTask.java)
+	at org.apache.tomcat.util.threads.InlineExecutorService.execute(InlineExecutorService.java:75)
+	at java.util.concurrent.AbstractExecutorService.submit(AbstractExecutorService.java:134)
+	at org.apache.catalina.core.ContainerBase.startInternal(ContainerBase.java:921)
+	at org.apache.catalina.core.StandardEngine.startInternal(StandardEngine.java:263)
+	at org.apache.catalina.util.LifecycleBase.start(LifecycleBase.java:183)
+	at org.apache.catalina.core.StandardService.startInternal(StandardService.java:437)
+	at org.apache.catalina.util.LifecycleBase.start(LifecycleBase.java:183)
+	at org.apache.catalina.core.StandardServer.startInternal(StandardServer.java:934)
+	at org.apache.catalina.util.LifecycleBase.start(LifecycleBase.java:183)
+	at org.apache.catalina.startup.Tomcat.start(Tomcat.java:486)
+	at org.springframework.boot.web.embedded.tomcat.TomcatWebServer.initialize(TomcatWebServer.java:123)
+	at org.springframework.boot.web.embedded.tomcat.TomcatWebServer.<init>(TomcatWebServer.java:104)
+	at org.springframework.boot.web.embedded.tomcat.TomcatServletWebServerFactory.getTomcatWebServer(TomcatServletWebServerFactory.java:450)
+	at org.springframework.boot.web.embedded.tomcat.TomcatServletWebServerFactory.getWebServer(TomcatServletWebServerFactory.java:199)
+	at org.springframework.boot.web.servlet.context.ServletWebServerApplicationContext.createWebServer(ServletWebServerApplicationContext.java:182)
+	at org.springframework.boot.web.servlet.context.ServletWebServerApplicationContext.onRefresh(ServletWebServerApplicationContext.java:160)
+	at org.springframework.context.support.AbstractApplicationContext.refresh(AbstractApplicationContext.java:577)
+	at org.springframework.boot.web.servlet.context.ServletWebServerApplicationContext.refresh(ServletWebServerApplicationContext.java:145)
+	at org.springframework.boot.SpringApplication.refresh(SpringApplication.java:754)
+	at org.springframework.boot.SpringApplication.refreshContext(SpringApplication.java:434)
+	at org.springframework.boot.SpringApplication.run(SpringApplication.java:338)
+	at org.springframework.boot.SpringApplication.run(SpringApplication.java:1343)
+	at org.springframework.boot.SpringApplication.run(SpringApplication.java:1332)
+	at com.itz.gst.GstPortalApiApplication.main(GstPortalApiApplication.java:22)
+	at sun.reflect.NativeMethodAccessorImpl.invoke0(Native Method)
+	at sun.reflect.NativeMethodAccessorImpl.invoke(NativeMethodAccessorImpl.java:62)
+	at sun.reflect.DelegatingMethodAccessorImpl.invoke(DelegatingMethodAccessorImpl.java:43)
+	at java.lang.reflect.Method.invoke(Method.java:498)
+	at org.springframework.boot.devtools.restart.RestartLauncher.run(RestartLauncher.java:49)
+2023-05-13 01:07:17,963 DEBUG org.springframework.web.filter.GenericFilterBean [restartedMain] Filter 'requestLoggingFilter' configured for use
+2023-05-13 01:07:17,963 DEBUG org.springframework.web.filter.GenericFilterBean [restartedMain] Filter 'jwtRequestFilter' configured for use
+2023-05-13 01:07:19,691 INFO org.springframework.boot.StartupInfoLogger [restartedMain] Started GstPortalApiApplication in 13.739 seconds (JVM running for 15.983)
+2023-05-13 01:09:36,392 INFO org.springframework.boot.StartupInfoLogger [restartedMain] Starting GstPortalApiApplication using Java 1.8.0_202 on LAPTOP-273708ED with PID 1988 (D:\Interlogz\GstPortalApi\Development\GstPortalApi\target\classes started by Abdul in D:\Interlogz\GstPortalApi\Development\GstPortalApi)
+2023-05-13 01:09:36,408 DEBUG org.springframework.boot.StartupInfoLogger [restartedMain] Running with Spring Boot v2.5.2, Spring v5.3.8
+2023-05-13 01:09:36,408 INFO org.springframework.boot.SpringApplication [restartedMain] No active profile set, falling back to default profiles: default
+2023-05-13 01:09:43,031 ERROR com.zaxxer.hikari.pool.HikariPool [restartedMain] HikariPool-1 - Exception during pool initialization.
+com.microsoft.sqlserver.jdbc.SQLServerException: Cannot open database "SCAN2TRACK?connectionTimeZone=GMT+5:30" requested by the login. The login failed. ClientConnectionId:a3b77f80-9685-443d-8ab0-39ad58a8006d
+	at com.microsoft.sqlserver.jdbc.SQLServerException.makeFromDatabaseError(SQLServerException.java:262)
+	at com.microsoft.sqlserver.jdbc.TDSTokenHandler.onEOF(tdsparser.java:283)
+	at com.microsoft.sqlserver.jdbc.TDSParser.parse(tdsparser.java:129)
+	at com.microsoft.sqlserver.jdbc.TDSParser.parse(tdsparser.java:37)
+	at com.microsoft.sqlserver.jdbc.SQLServerConnection.sendLogon(SQLServerConnection.java:5333)
+	at com.microsoft.sqlserver.jdbc.SQLServerConnection.logon(SQLServerConnection.java:4066)
+	at com.microsoft.sqlserver.jdbc.SQLServerConnection.access$000(SQLServerConnection.java:85)
+	at com.microsoft.sqlserver.jdbc.SQLServerConnection$LogonCommand.doExecute(SQLServerConnection.java:4004)
+	at com.microsoft.sqlserver.jdbc.TDSCommand.execute(IOBuffer.java:7418)
+	at com.microsoft.sqlserver.jdbc.SQLServerConnection.executeCommand(SQLServerConnection.java:3272)
+	at com.microsoft.sqlserver.jdbc.SQLServerConnection.connectHelper(SQLServerConnection.java:2768)
+	at com.microsoft.sqlserver.jdbc.SQLServerConnection.login(SQLServerConnection.java:2418)
+	at com.microsoft.sqlserver.jdbc.SQLServerConnection.connectInternal(SQLServerConnection.java:2265)
+	at com.microsoft.sqlserver.jdbc.SQLServerConnection.connect(SQLServerConnection.java:1291)
+	at com.microsoft.sqlserver.jdbc.SQLServerDriver.connect(SQLServerDriver.java:881)
+	at com.zaxxer.hikari.util.DriverDataSource.getConnection(DriverDataSource.java:138)
+	at com.zaxxer.hikari.pool.PoolBase.newConnection(PoolBase.java:364)
+	at com.zaxxer.hikari.pool.PoolBase.newPoolEntry(PoolBase.java:206)
+	at com.zaxxer.hikari.pool.HikariPool.createPoolEntry(HikariPool.java:476)
+	at com.zaxxer.hikari.pool.HikariPool.checkFailFast(HikariPool.java:561)
+	at com.zaxxer.hikari.pool.HikariPool.<init>(HikariPool.java:115)
+	at com.zaxxer.hikari.HikariDataSource.getConnection(HikariDataSource.java:112)
+	at org.hibernate.engine.jdbc.connections.internal.DatasourceConnectionProviderImpl.getConnection(DatasourceConnectionProviderImpl.java:122)
+	at org.hibernate.engine.jdbc.env.internal.JdbcEnvironmentInitiator$ConnectionProviderJdbcConnectionAccess.obtainConnection(JdbcEnvironmentInitiator.java:180)
+	at org.hibernate.engine.jdbc.env.internal.JdbcEnvironmentInitiator.initiateService(JdbcEnvironmentInitiator.java:68)
+	at org.hibernate.engine.jdbc.env.internal.JdbcEnvironmentInitiator.initiateService(JdbcEnvironmentInitiator.java:35)
+	at org.hibernate.boot.registry.internal.StandardServiceRegistryImpl.initiateService(StandardServiceRegistryImpl.java:101)
+	at org.hibernate.service.internal.AbstractServiceRegistryImpl.createService(AbstractServiceRegistryImpl.java:263)
+	at org.hibernate.service.internal.AbstractServiceRegistryImpl.initializeService(AbstractServiceRegistryImpl.java:237)
+	at org.hibernate.service.internal.AbstractServiceRegistryImpl.getService(AbstractServiceRegistryImpl.java:214)
+	at org.hibernate.id.factory.internal.DefaultIdentifierGeneratorFactory.injectServices(DefaultIdentifierGeneratorFactory.java:152)
+	at org.hibernate.service.internal.AbstractServiceRegistryImpl.injectDependencies(AbstractServiceRegistryImpl.java:286)
+	at org.hibernate.service.internal.AbstractServiceRegistryImpl.initializeService(AbstractServiceRegistryImpl.java:243)
+	at org.hibernate.service.internal.AbstractServiceRegistryImpl.getService(AbstractServiceRegistryImpl.java:214)
+	at org.hibernate.boot.internal.InFlightMetadataCollectorImpl.<init>(InFlightMetadataCollectorImpl.java:176)
+	at org.hibernate.boot.model.process.spi.MetadataBuildingProcess.complete(MetadataBuildingProcess.java:127)
+	at org.hibernate.jpa.boot.internal.EntityManagerFactoryBuilderImpl.metadata(EntityManagerFactoryBuilderImpl.java:1224)
+	at org.hibernate.jpa.boot.internal.EntityManagerFactoryBuilderImpl.build(EntityManagerFactoryBuilderImpl.java:1255)
+	at org.springframework.orm.jpa.vendor.SpringHibernateJpaPersistenceProvider.createContainerEntityManagerFactory(SpringHibernateJpaPersistenceProvider.java:58)
+	at org.springframework.orm.jpa.LocalContainerEntityManagerFactoryBean.createNativeEntityManagerFactory(LocalContainerEntityManagerFactoryBean.java:365)
+	at org.springframework.orm.jpa.AbstractEntityManagerFactoryBean.buildNativeEntityManagerFactory(AbstractEntityManagerFactoryBean.java:409)
+	at org.springframework.orm.jpa.AbstractEntityManagerFactoryBean.afterPropertiesSet(AbstractEntityManagerFactoryBean.java:396)
+	at org.springframework.orm.jpa.LocalContainerEntityManagerFactoryBean.afterPropertiesSet(LocalContainerEntityManagerFactoryBean.java:341)
+	at org.springframework.beans.factory.support.AbstractAutowireCapableBeanFactory.invokeInitMethods(AbstractAutowireCapableBeanFactory.java:1845)
+	at org.springframework.beans.factory.support.AbstractAutowireCapableBeanFactory.initializeBean(AbstractAutowireCapableBeanFactory.java:1782)
+	at org.springframework.beans.factory.support.AbstractAutowireCapableBeanFactory.doCreateBean(AbstractAutowireCapableBeanFactory.java:602)
+	at org.springframework.beans.factory.support.AbstractAutowireCapableBeanFactory.createBean(AbstractAutowireCapableBeanFactory.java:524)
+	at org.springframework.beans.factory.support.AbstractBeanFactory.lambda$doGetBean$0(AbstractBeanFactory.java:335)
+	at org.springframework.beans.factory.support.DefaultSingletonBeanRegistry.getSingleton(DefaultSingletonBeanRegistry.java:234)
+	at org.springframework.beans.factory.support.AbstractBeanFactory.doGetBean(AbstractBeanFactory.java:333)
+	at org.springframework.beans.factory.support.AbstractBeanFactory.getBean(AbstractBeanFactory.java:208)
+	at org.springframework.beans.factory.support.BeanDefinitionValueResolver.resolveReference(BeanDefinitionValueResolver.java:330)
+	at org.springframework.beans.factory.support.BeanDefinitionValueResolver.resolveValueIfNecessary(BeanDefinitionValueResolver.java:113)
+	at org.springframework.beans.factory.support.ConstructorResolver.resolveConstructorArguments(ConstructorResolver.java:693)
+	at org.springframework.beans.factory.support.ConstructorResolver.instantiateUsingFactoryMethod(ConstructorResolver.java:510)
+	at org.springframework.beans.factory.support.AbstractAutowireCapableBeanFactory.instantiateUsingFactoryMethod(AbstractAutowireCapableBeanFactory.java:1334)
+	at org.springframework.beans.factory.support.AbstractAutowireCapableBeanFactory.createBeanInstance(AbstractAutowireCapableBeanFactory.java:1177)
+	at org.springframework.beans.factory.support.AbstractAutowireCapableBeanFactory.doCreateBean(AbstractAutowireCapableBeanFactory.java:564)
+	at org.springframework.beans.factory.support.AbstractAutowireCapableBeanFactory.createBean(AbstractAutowireCapableBeanFactory.java:524)
+	at org.springframework.beans.factory.support.BeanDefinitionValueResolver.resolveInnerBean(BeanDefinitionValueResolver.java:374)
+	at org.springframework.beans.factory.support.BeanDefinitionValueResolver.resolveValueIfNecessary(BeanDefinitionValueResolver.java:134)
+	at org.springframework.beans.factory.support.AbstractAutowireCapableBeanFactory.applyPropertyValues(AbstractAutowireCapableBeanFactory.java:1689)
+	at org.springframework.beans.factory.support.AbstractAutowireCapableBeanFactory.populateBean(AbstractAutowireCapableBeanFactory.java:1434)
+	at org.springframework.beans.factory.support.AbstractAutowireCapableBeanFactory.doCreateBean(AbstractAutowireCapableBeanFactory.java:601)
+	at org.springframework.beans.factory.support.AbstractAutowireCapableBeanFactory.createBean(AbstractAutowireCapableBeanFactory.java:524)
+	at org.springframework.beans.factory.support.AbstractBeanFactory.lambda$doGetBean$0(AbstractBeanFactory.java:335)
+	at org.springframework.beans.factory.support.DefaultSingletonBeanRegistry.getSingleton(DefaultSingletonBeanRegistry.java:234)
+	at org.springframework.beans.factory.support.AbstractBeanFactory.doGetBean(AbstractBeanFactory.java:333)
+	at org.springframework.beans.factory.support.AbstractBeanFactory.getBean(AbstractBeanFactory.java:208)
+	at org.springframework.beans.factory.config.DependencyDescriptor.resolveCandidate(DependencyDescriptor.java:276)
+	at org.springframework.beans.factory.support.DefaultListableBeanFactory.doResolveDependency(DefaultListableBeanFactory.java:1380)
+	at org.springframework.beans.factory.support.DefaultListableBeanFactory.resolveDependency(DefaultListableBeanFactory.java:1300)
+	at org.springframework.beans.factory.annotation.AutowiredAnnotationBeanPostProcessor$AutowiredFieldElement.resolveFieldValue(AutowiredAnnotationBeanPostProcessor.java:657)
+	at org.springframework.beans.factory.annotation.AutowiredAnnotationBeanPostProcessor$AutowiredFieldElement.inject(AutowiredAnnotationBeanPostProcessor.java:640)
+	at org.springframework.beans.factory.annotation.InjectionMetadata.inject(InjectionMetadata.java:119)
+	at org.springframework.beans.factory.annotation.AutowiredAnnotationBeanPostProcessor.postProcessProperties(AutowiredAnnotationBeanPostProcessor.java:399)
+	at org.springframework.beans.factory.support.AbstractAutowireCapableBeanFactory.populateBean(AbstractAutowireCapableBeanFactory.java:1413)
+	at org.springframework.beans.factory.support.AbstractAutowireCapableBeanFactory.doCreateBean(AbstractAutowireCapableBeanFactory.java:601)
+	at org.springframework.beans.factory.support.AbstractAutowireCapableBeanFactory.createBean(AbstractAutowireCapableBeanFactory.java:524)
+	at org.springframework.beans.factory.support.AbstractBeanFactory.lambda$doGetBean$0(AbstractBeanFactory.java:335)
+	at org.springframework.beans.factory.support.DefaultSingletonBeanRegistry.getSingleton(DefaultSingletonBeanRegistry.java:234)
+	at org.springframework.beans.factory.support.AbstractBeanFactory.doGetBean(AbstractBeanFactory.java:333)
+	at org.springframework.beans.factory.support.AbstractBeanFactory.getBean(AbstractBeanFactory.java:208)
+	at org.springframework.beans.factory.config.DependencyDescriptor.resolveCandidate(DependencyDescriptor.java:276)
+	at org.springframework.beans.factory.support.DefaultListableBeanFactory.doResolveDependency(DefaultListableBeanFactory.java:1380)
+	at org.springframework.beans.factory.support.DefaultListableBeanFactory.resolveDependency(DefaultListableBeanFactory.java:1300)
+	at org.springframework.beans.factory.annotation.AutowiredAnnotationBeanPostProcessor$AutowiredFieldElement.resolveFieldValue(AutowiredAnnotationBeanPostProcessor.java:657)
+	at org.springframework.beans.factory.annotation.AutowiredAnnotationBeanPostProcessor$AutowiredFieldElement.inject(AutowiredAnnotationBeanPostProcessor.java:640)
+	at org.springframework.beans.factory.annotation.InjectionMetadata.inject(InjectionMetadata.java:119)
+	at org.springframework.beans.factory.annotation.AutowiredAnnotationBeanPostProcessor.postProcessProperties(AutowiredAnnotationBeanPostProcessor.java:399)
+	at org.springframework.beans.factory.support.AbstractAutowireCapableBeanFactory.populateBean(AbstractAutowireCapableBeanFactory.java:1413)
+	at org.springframework.beans.factory.support.AbstractAutowireCapableBeanFactory.doCreateBean(AbstractAutowireCapableBeanFactory.java:601)
+	at org.springframework.beans.factory.support.AbstractAutowireCapableBeanFactory.createBean(AbstractAutowireCapableBeanFactory.java:524)
+	at org.springframework.beans.factory.support.AbstractBeanFactory.lambda$doGetBean$0(AbstractBeanFactory.java:335)
+	at org.springframework.beans.factory.support.DefaultSingletonBeanRegistry.getSingleton(DefaultSingletonBeanRegistry.java:234)
+	at org.springframework.beans.factory.support.AbstractBeanFactory.doGetBean(AbstractBeanFactory.java:333)
+	at org.springframework.beans.factory.support.AbstractBeanFactory.getBean(AbstractBeanFactory.java:213)
+	at org.springframework.boot.web.servlet.ServletContextInitializerBeans.getOrderedBeansOfType(ServletContextInitializerBeans.java:212)
+	at org.springframework.boot.web.servlet.ServletContextInitializerBeans.addAsRegistrationBean(ServletContextInitializerBeans.java:175)
+	at org.springframework.boot.web.servlet.ServletContextInitializerBeans.addAsRegistrationBean(ServletContextInitializerBeans.java:170)
+	at org.springframework.boot.web.servlet.ServletContextInitializerBeans.addAdaptableBeans(ServletContextInitializerBeans.java:155)
+	at org.springframework.boot.web.servlet.ServletContextInitializerBeans.<init>(ServletContextInitializerBeans.java:87)
+	at org.springframework.boot.web.servlet.context.ServletWebServerApplicationContext.getServletContextInitializerBeans(ServletWebServerApplicationContext.java:260)
+	at org.springframework.boot.web.servlet.context.ServletWebServerApplicationContext.selfInitialize(ServletWebServerApplicationContext.java:234)
+	at org.springframework.boot.web.embedded.tomcat.TomcatStarter.onStartup(TomcatStarter.java:53)
+	at org.apache.catalina.core.StandardContext.startInternal(StandardContext.java:5219)
+	at org.apache.catalina.util.LifecycleBase.start(LifecycleBase.java:183)
+	at org.apache.catalina.core.ContainerBase$StartChild.call(ContainerBase.java:1398)
+	at org.apache.catalina.core.ContainerBase$StartChild.call(ContainerBase.java:1388)
+	at java.util.concurrent.FutureTask.run$$$capture(FutureTask.java:266)
+	at java.util.concurrent.FutureTask.run(FutureTask.java)
+	at org.apache.tomcat.util.threads.InlineExecutorService.execute(InlineExecutorService.java:75)
+	at java.util.concurrent.AbstractExecutorService.submit(AbstractExecutorService.java:134)
+	at org.apache.catalina.core.ContainerBase.startInternal(ContainerBase.java:921)
+	at org.apache.catalina.core.StandardHost.startInternal(StandardHost.java:835)
+	at org.apache.catalina.util.LifecycleBase.start(LifecycleBase.java:183)
+	at org.apache.catalina.core.ContainerBase$StartChild.call(ContainerBase.java:1398)
+	at org.apache.catalina.core.ContainerBase$StartChild.call(ContainerBase.java:1388)
+	at java.util.concurrent.FutureTask.run$$$capture(FutureTask.java:266)
+	at java.util.concurrent.FutureTask.run(FutureTask.java)
+	at org.apache.tomcat.util.threads.InlineExecutorService.execute(InlineExecutorService.java:75)
+	at java.util.concurrent.AbstractExecutorService.submit(AbstractExecutorService.java:134)
+	at org.apache.catalina.core.ContainerBase.startInternal(ContainerBase.java:921)
+	at org.apache.catalina.core.StandardEngine.startInternal(StandardEngine.java:263)
+	at org.apache.catalina.util.LifecycleBase.start(LifecycleBase.java:183)
+	at org.apache.catalina.core.StandardService.startInternal(StandardService.java:437)
+	at org.apache.catalina.util.LifecycleBase.start(LifecycleBase.java:183)
+	at org.apache.catalina.core.StandardServer.startInternal(StandardServer.java:934)
+	at org.apache.catalina.util.LifecycleBase.start(LifecycleBase.java:183)
+	at org.apache.catalina.startup.Tomcat.start(Tomcat.java:486)
+	at org.springframework.boot.web.embedded.tomcat.TomcatWebServer.initialize(TomcatWebServer.java:123)
+	at org.springframework.boot.web.embedded.tomcat.TomcatWebServer.<init>(TomcatWebServer.java:104)
+	at org.springframework.boot.web.embedded.tomcat.TomcatServletWebServerFactory.getTomcatWebServer(TomcatServletWebServerFactory.java:450)
+	at org.springframework.boot.web.embedded.tomcat.TomcatServletWebServerFactory.getWebServer(TomcatServletWebServerFactory.java:199)
+	at org.springframework.boot.web.servlet.context.ServletWebServerApplicationContext.createWebServer(ServletWebServerApplicationContext.java:182)
+	at org.springframework.boot.web.servlet.context.ServletWebServerApplicationContext.onRefresh(ServletWebServerApplicationContext.java:160)
+	at org.springframework.context.support.AbstractApplicationContext.refresh(AbstractApplicationContext.java:577)
+	at org.springframework.boot.web.servlet.context.ServletWebServerApplicationContext.refresh(ServletWebServerApplicationContext.java:145)
+	at org.springframework.boot.SpringApplication.refresh(SpringApplication.java:754)
+	at org.springframework.boot.SpringApplication.refreshContext(SpringApplication.java:434)
+	at org.springframework.boot.SpringApplication.run(SpringApplication.java:338)
+	at org.springframework.boot.SpringApplication.run(SpringApplication.java:1343)
+	at org.springframework.boot.SpringApplication.run(SpringApplication.java:1332)
+	at com.itz.gst.GstPortalApiApplication.main(GstPortalApiApplication.java:22)
+	at sun.reflect.NativeMethodAccessorImpl.invoke0(Native Method)
+	at sun.reflect.NativeMethodAccessorImpl.invoke(NativeMethodAccessorImpl.java:62)
+	at sun.reflect.DelegatingMethodAccessorImpl.invoke(DelegatingMethodAccessorImpl.java:43)
+	at java.lang.reflect.Method.invoke(Method.java:498)
+	at org.springframework.boot.devtools.restart.RestartLauncher.run(RestartLauncher.java:49)
+2023-05-13 01:09:45,114 DEBUG org.springframework.web.filter.GenericFilterBean [restartedMain] Filter 'requestLoggingFilter' configured for use
+2023-05-13 01:09:45,114 DEBUG org.springframework.web.filter.GenericFilterBean [restartedMain] Filter 'jwtRequestFilter' configured for use
+2023-05-13 01:09:46,677 INFO org.springframework.boot.StartupInfoLogger [restartedMain] Started GstPortalApiApplication in 11.18 seconds (JVM running for 12.699)
+2023-05-13 01:10:44,397 INFO org.springframework.boot.StartupInfoLogger [restartedMain] Starting GstPortalApiApplication using Java 1.8.0_202 on LAPTOP-273708ED with PID 14264 (D:\Interlogz\GstPortalApi\Development\GstPortalApi\target\classes started by Abdul in D:\Interlogz\GstPortalApi\Development\GstPortalApi)
+2023-05-13 01:10:44,397 DEBUG org.springframework.boot.StartupInfoLogger [restartedMain] Running with Spring Boot v2.5.2, Spring v5.3.8
+2023-05-13 01:10:44,397 INFO org.springframework.boot.SpringApplication [restartedMain] No active profile set, falling back to default profiles: default
+2023-05-13 01:10:51,719 DEBUG org.springframework.web.filter.GenericFilterBean [restartedMain] Filter 'requestLoggingFilter' configured for use
+2023-05-13 01:10:51,719 DEBUG org.springframework.web.filter.GenericFilterBean [restartedMain] Filter 'jwtRequestFilter' configured for use
+2023-05-13 01:10:53,283 INFO org.springframework.boot.StartupInfoLogger [restartedMain] Started GstPortalApiApplication in 9.692 seconds (JVM running for 10.861)
+2023-05-13 01:11:01,000 DEBUG org.springframework.web.filter.CommonsRequestLoggingFilter [http-nio-9001-exec-1] Before request [GET /api/v1/gst/123, client=0:0:0:0:0:0:0:1]
+2023-05-13 01:13:28,579 DEBUG org.springframework.web.filter.CommonsRequestLoggingFilter [http-nio-9001-exec-1] After request [GET /api/v1/gst/123, client=0:0:0:0:0:0:0:1]
+2023-05-13 01:15:33,090 INFO org.springframework.boot.StartupInfoLogger [restartedMain] Starting GstPortalApiApplication using Java 1.8.0_202 on LAPTOP-273708ED with PID 17024 (D:\Interlogz\GstPortalApi\Development\GstPortalApi\target\classes started by Abdul in D:\Interlogz\GstPortalApi\Development\GstPortalApi)
+2023-05-13 01:15:33,099 DEBUG org.springframework.boot.StartupInfoLogger [restartedMain] Running with Spring Boot v2.5.2, Spring v5.3.8
+2023-05-13 01:15:33,099 INFO org.springframework.boot.SpringApplication [restartedMain] No active profile set, falling back to default profiles: default
+2023-05-13 01:15:45,158 DEBUG org.springframework.web.filter.GenericFilterBean [restartedMain] Filter 'requestLoggingFilter' configured for use
+2023-05-13 01:15:45,158 DEBUG org.springframework.web.filter.GenericFilterBean [restartedMain] Filter 'jwtRequestFilter' configured for use
+2023-05-13 01:15:47,717 INFO org.springframework.boot.StartupInfoLogger [restartedMain] Started GstPortalApiApplication in 15.851 seconds (JVM running for 17.431)
+2023-05-13 01:15:49,593 DEBUG org.springframework.web.filter.CommonsRequestLoggingFilter [http-nio-9001-exec-1] Before request [GET /api/v1/gst/123, client=0:0:0:0:0:0:0:1]
+2023-05-13 01:17:26,941 DEBUG org.springframework.web.filter.CommonsRequestLoggingFilter [http-nio-9001-exec-1] After request [GET /api/v1/gst/123, client=0:0:0:0:0:0:0:1]
+2023-05-13 01:22:40,756 INFO org.springframework.boot.StartupInfoLogger [restartedMain] Starting GstPortalApiApplication using Java 1.8.0_202 on LAPTOP-273708ED with PID 8804 (D:\Interlogz\GstPortalApi\Development\GstPortalApi\target\classes started by Abdul in D:\Interlogz\GstPortalApi\Development\GstPortalApi)
+2023-05-13 01:22:40,764 DEBUG org.springframework.boot.StartupInfoLogger [restartedMain] Running with Spring Boot v2.5.2, Spring v5.3.8
+2023-05-13 01:22:40,764 INFO org.springframework.boot.SpringApplication [restartedMain] No active profile set, falling back to default profiles: default
+2023-05-13 01:22:48,414 DEBUG org.springframework.web.filter.GenericFilterBean [restartedMain] Filter 'requestLoggingFilter' configured for use
+2023-05-13 01:22:48,414 DEBUG org.springframework.web.filter.GenericFilterBean [restartedMain] Filter 'jwtRequestFilter' configured for use
+2023-05-13 01:22:49,953 INFO org.springframework.boot.StartupInfoLogger [restartedMain] Started GstPortalApiApplication in 10.118 seconds (JVM running for 11.351)
+2023-05-13 01:23:18,518 DEBUG org.springframework.web.filter.CommonsRequestLoggingFilter [http-nio-9001-exec-2] Before request [GET /api/v1/gst/123, client=0:0:0:0:0:0:0:1]
+2023-05-13 01:23:57,469 ERROR org.hibernate.engine.jdbc.spi.SqlExceptionHelper [http-nio-9001-exec-2] The statement did not return a result set.
+2023-05-13 01:24:12,466 DEBUG org.springframework.web.filter.CommonsRequestLoggingFilter [http-nio-9001-exec-2] After request [GET /api/v1/gst/123, client=0:0:0:0:0:0:0:1]
+2023-05-13 01:25:34,058 INFO org.springframework.boot.StartupInfoLogger [restartedMain] Starting GstPortalApiApplication using Java 1.8.0_202 on LAPTOP-273708ED with PID 9012 (D:\Interlogz\GstPortalApi\Development\GstPortalApi\target\classes started by Abdul in D:\Interlogz\GstPortalApi\Development\GstPortalApi)
+2023-05-13 01:25:34,066 DEBUG org.springframework.boot.StartupInfoLogger [restartedMain] Running with Spring Boot v2.5.2, Spring v5.3.8
+2023-05-13 01:25:34,066 INFO org.springframework.boot.SpringApplication [restartedMain] No active profile set, falling back to default profiles: default
+2023-05-13 01:25:47,119 DEBUG org.springframework.web.filter.GenericFilterBean [restartedMain] Filter 'requestLoggingFilter' configured for use
+2023-05-13 01:25:47,119 DEBUG org.springframework.web.filter.GenericFilterBean [restartedMain] Filter 'jwtRequestFilter' configured for use
+2023-05-13 01:25:52,668 INFO org.springframework.boot.StartupInfoLogger [restartedMain] Started GstPortalApiApplication in 19.988 seconds (JVM running for 21.784)
+2023-05-13 01:25:59,713 DEBUG org.springframework.web.filter.CommonsRequestLoggingFilter [http-nio-9001-exec-1] Before request [GET /api/v1/gst/123, client=0:0:0:0:0:0:0:1]
+2023-05-13 01:26:07,545 DEBUG org.springframework.web.filter.CommonsRequestLoggingFilter [http-nio-9001-exec-1] After request [GET /api/v1/gst/123, client=0:0:0:0:0:0:0:1]
+2023-05-13 01:27:52,377 INFO org.springframework.boot.StartupInfoLogger [restartedMain] Starting GstPortalApiApplication using Java 1.8.0_202 on LAPTOP-273708ED with PID 21700 (D:\Interlogz\GstPortalApi\Development\GstPortalApi\target\classes started by Abdul in D:\Interlogz\GstPortalApi\Development\GstPortalApi)
+2023-05-13 01:27:52,393 DEBUG org.springframework.boot.StartupInfoLogger [restartedMain] Running with Spring Boot v2.5.2, Spring v5.3.8
+2023-05-13 01:27:52,393 INFO org.springframework.boot.SpringApplication [restartedMain] No active profile set, falling back to default profiles: default
+2023-05-13 01:28:11,342 DEBUG org.springframework.web.filter.GenericFilterBean [restartedMain] Filter 'requestLoggingFilter' configured for use
+2023-05-13 01:28:11,342 DEBUG org.springframework.web.filter.GenericFilterBean [restartedMain] Filter 'jwtRequestFilter' configured for use
+2023-05-13 01:28:15,147 INFO org.springframework.boot.StartupInfoLogger [restartedMain] Started GstPortalApiApplication in 24.265 seconds (JVM running for 26.528)
+2023-05-13 01:28:20,780 DEBUG org.springframework.web.filter.CommonsRequestLoggingFilter [http-nio-9001-exec-2] Before request [GET /api/v1/gst/123, client=0:0:0:0:0:0:0:1]
+2023-05-13 01:28:53,381 DEBUG org.springframework.web.filter.CommonsRequestLoggingFilter [http-nio-9001-exec-2] After request [GET /api/v1/gst/123, client=0:0:0:0:0:0:0:1]
+2023-05-13 01:29:11,909 DEBUG org.springframework.web.filter.CommonsRequestLoggingFilter [http-nio-9001-exec-3] Before request [GET /api/v1/gst/123, client=0:0:0:0:0:0:0:1]
+2023-05-13 01:29:20,396 DEBUG org.springframework.web.filter.CommonsRequestLoggingFilter [http-nio-9001-exec-3] After request [GET /api/v1/gst/123, client=0:0:0:0:0:0:0:1]
+2023-05-13 01:30:32,825 DEBUG org.springframework.web.filter.CommonsRequestLoggingFilter [http-nio-9001-exec-4] Before request [GET /api/v1/gst/123, client=0:0:0:0:0:0:0:1]
+2023-05-13 01:30:32,875 DEBUG org.springframework.web.filter.CommonsRequestLoggingFilter [http-nio-9001-exec-4] After request [GET /api/v1/gst/123, client=0:0:0:0:0:0:0:1]
+2023-05-13 01:31:05,777 INFO org.springframework.boot.StartupInfoLogger [restartedMain] Starting GstPortalApiApplication using Java 1.8.0_202 on LAPTOP-273708ED with PID 13080 (D:\Interlogz\GstPortalApi\Development\GstPortalApi\target\classes started by Abdul in D:\Interlogz\GstPortalApi\Development\GstPortalApi)
+2023-05-13 01:31:05,792 DEBUG org.springframework.boot.StartupInfoLogger [restartedMain] Running with Spring Boot v2.5.2, Spring v5.3.8
+2023-05-13 01:31:05,792 INFO org.springframework.boot.SpringApplication [restartedMain] No active profile set, falling back to default profiles: default
+2023-05-13 01:31:17,792 DEBUG org.springframework.web.filter.GenericFilterBean [restartedMain] Filter 'requestLoggingFilter' configured for use
+2023-05-13 01:31:17,792 DEBUG org.springframework.web.filter.GenericFilterBean [restartedMain] Filter 'jwtRequestFilter' configured for use
+2023-05-13 01:31:21,030 INFO org.springframework.boot.StartupInfoLogger [restartedMain] Started GstPortalApiApplication in 16.22 seconds (JVM running for 17.918)
+2023-05-13 01:31:45,788 DEBUG org.springframework.web.filter.CommonsRequestLoggingFilter [http-nio-9001-exec-9] Before request [POST /api/v1/auth/login, client=0:0:0:0:0:0:0:1]
+2023-05-13 01:31:46,198 DEBUG org.springframework.web.filter.CommonsRequestLoggingFilter [http-nio-9001-exec-9] After request [POST /api/v1/auth/login, client=0:0:0:0:0:0:0:1, payload={
+    "userId":"abdul",
+    "password":"1234",
+]
+2023-05-13 01:31:58,323 DEBUG org.springframework.web.filter.CommonsRequestLoggingFilter [http-nio-9001-exec-5] Before request [GET /api/v1/gst/123, client=0:0:0:0:0:0:0:1, user=abdul]
+2023-05-13 01:32:04,785 DEBUG org.springframework.web.filter.CommonsRequestLoggingFilter [http-nio-9001-exec-5] After request [GET /api/v1/gst/123, client=0:0:0:0:0:0:0:1, user=abdul]
+2023-05-13 01:32:24,244 DEBUG org.springframework.web.filter.CommonsRequestLoggingFilter [http-nio-9001-exec-8] Before request [GET /api/v1/ping, client=0:0:0:0:0:0:0:1]
+2023-05-13 01:32:24,254 DEBUG org.springframework.web.filter.CommonsRequestLoggingFilter [http-nio-9001-exec-8] After request [GET /api/v1/ping, client=0:0:0:0:0:0:0:1]

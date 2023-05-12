@@ -6,10 +6,10 @@ import lombok.Setter;
 @Getter
 @Setter
 public class ClaimsDao {
-    private String iat;
     private String sub;
-    private String exp;
-    private String rol;
     private String usr;
+    private String gst;
     private String plt;
+    private String iat;
+    private String exp;
 }

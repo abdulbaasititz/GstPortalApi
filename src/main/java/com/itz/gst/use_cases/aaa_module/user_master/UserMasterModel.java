@@ -1,6 +1,6 @@
 package com.itz.gst.use_cases.aaa_module.user_master;
 
-import com.itz.gst.persistence.models.aaa_module.UserMaster;
+import com.itz.gst.entity.UserMaster;
 import com.itz.gst.use_cases.aaa_module.user_master.dao.UserMasterDao;
 import org.modelmapper.ModelMapper;
 
@@ -13,12 +13,6 @@ public class UserMasterModel {
         userMaster.setUserId(val.getUserId());
         userMaster.setPassword(val.getPassword());
         userMaster.setDesignation(val.getDesignation());
-        userMaster.setPhoneNumber(val.getPhoneNumber());
-        userMaster.setUserName(val.getUserName());
-        userMaster.setEmail(val.getEmail());
-        userMaster.setIsActive(val.getIsActive());
-        userMaster.setCrBy("anonymous");
-        userMaster.setRoleMasterId(roleMasterId);
 //        UserRole userRole = new UserRole();
 //        userRole.setRoleMasterId(roleMasterId);
 //        userRole.setCrBy("anonymous");

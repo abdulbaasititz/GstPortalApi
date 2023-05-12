@@ -1,12 +1,12 @@
 package com.itz.gst.use_cases.aaa_module.auth;
 
 
-import com.itz.gst.helpers.common.constant.UseCasesConstant;
 import com.itz.gst.helpers.common.token.ClaimsSet;
 import com.itz.gst.helpers.utils.JwtUtil;
-import com.itz.gst.persistence.models.aaa_module.UserMaster;
+import com.itz.gst.entity.UserMaster;
 import com.itz.gst.use_cases.aaa_module.auth.dao.AuthRequestDao;
 import com.itz.gst.use_cases.aaa_module.auth.dao.AuthTokensDao;
+import com.itz.gst.use_cases.aaa_module.auth.dao.ClaimsDetDao;
 import io.jsonwebtoken.Claims;
 import io.jsonwebtoken.ExpiredJwtException;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -68,13 +68,14 @@ public class AuthService implements UserDetailsService {
         UserMaster userInfo;
         String userId = authenticationRequest.getUserId();
         String password = authenticationRequest.getPassword();
+        String gst = authenticationRequest.getGst();
         try {
-            authenticationManager.authenticate(new UsernamePasswordAuthenticationToken(
-                    userId, password));
-            userInfo = authRepository.findByUserIdAndIsActive(userId, true);
-            Map<String, Object> claims = ClaimsSet.setClaimsDetails(userInfo);
-            String accessToken = jwtTokenUtil.generateAccessToken(userInfo, claims);
-            String refreshToken = jwtTokenUtil.generateRefreshToken(userInfo.getUserId(), claims);
+            authenticationManager.authenticate(new UsernamePasswordAuthenticationToken(userId, password));
+
+            ClaimsDetDao claimsDetails = authRepository.getClaimsDetails(userId,gst);
+            Map<String, Object> claims = ClaimsSet.setClaimsDetails(claimsDetails);
+            String accessToken = jwtTokenUtil.generateAccessToken(claimsDetails.getSub(),claims);
+            String refreshToken = jwtTokenUtil.generateRefreshToken(claimsDetails.getSub(),claims);
             return new AuthTokensDao(accessToken, refreshToken, true);
         } catch (BadCredentialsException e) {
             throw new BadCredentialsException("Password Wrong");

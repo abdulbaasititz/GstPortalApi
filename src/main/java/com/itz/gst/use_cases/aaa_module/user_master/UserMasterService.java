@@ -2,7 +2,7 @@ package com.itz.gst.use_cases.aaa_module.user_master;
 
 import com.itz.gst.helpers.configs.LoggerConfig;
 import com.itz.gst.helpers.utils.OffsetBasedPageRequest;
-import com.itz.gst.persistence.models.aaa_module.UserMaster;
+import com.itz.gst.entity.UserMaster;
 import com.itz.gst.use_cases.aaa_module.user_master.dao.UserMasterPojo;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.data.domain.Page;

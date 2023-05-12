@@ -1,4 +1,4 @@
-package com.itz.gst.persistence.models.common;
+package com.itz.gst.entity;
 
 import lombok.AccessLevel;
 import lombok.Getter;

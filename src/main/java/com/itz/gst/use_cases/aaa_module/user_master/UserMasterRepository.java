@@ -1,6 +1,6 @@
 package com.itz.gst.use_cases.aaa_module.user_master;
 
-import com.itz.gst.persistence.models.aaa_module.UserMaster;
+import com.itz.gst.entity.UserMaster;
 import com.itz.gst.use_cases.aaa_module.user_master.dao.UserMasterPojo;
 import org.springframework.data.domain.Page;
 import org.springframework.data.domain.Pageable;
