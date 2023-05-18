@@ -14,8 +14,8 @@ public interface AuthRepository extends JpaRepository<UserMaster, Long> {
 
     UserMaster findByUserIdAndIsActive(String usrId, boolean b);
 
-    @Query(value = "select usr.Id as usr,usr.UserId as sub,usr.CompanyName as plt " +
-            ",gst.Gstin as gst from UserMaster usr join UserGstDetails gst " +
+    @Query(value = "select usr.Id as usr,usr.UserId as sub,usr.CompanyCode as plt " +
+            ",gst.Gstin as gst from FIN_EIN_UserMaster usr join FIN_EIN_UserGstDetails gst " +
             " on usr.Id = gst.UserMasterId " +
             " where usr.UserId = :usrId and gst.Gstin = :gst and usr.IsActive = 1",nativeQuery = true)
     ClaimsDetDao getClaimsDetails(String usrId, String gst);

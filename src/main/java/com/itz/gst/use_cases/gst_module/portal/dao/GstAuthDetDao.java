@@ -11,4 +11,5 @@ public interface GstAuthDetDao {
     String getPassword();
     String getGstin();
     Integer getDiff();
+    String getTkn();
 }

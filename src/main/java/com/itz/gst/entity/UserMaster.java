@@ -6,7 +6,7 @@ import javax.persistence.*;
 import java.util.Date;
 
 @Entity
-@Table(name = "UserMaster") @Data
+@Table(name = "FIN_EIN_UserMaster") @Data
 public class UserMaster {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
@@ -18,8 +18,8 @@ public class UserMaster {
     private String password;
     @Column(name = "Designation")
     private String designation;
-    @Column(name = "CompanyName")
-    private String companyName;
+    @Column(name = "CompanyCode")
+    private String companyCode;
     @Column(name = "GstTypeId")
     private Integer gstTypeId;
     @Column(name = "TotalHits")

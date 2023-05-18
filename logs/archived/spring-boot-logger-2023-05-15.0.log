@@ -1,0 +1,28 @@
+2023-05-15 19:34:51,700 INFO org.springframework.boot.StartupInfoLogger [restartedMain] Starting GstPortalApiApplication using Java 1.8.0_202 on LAPTOP-273708ED with PID 18188 (D:\Interlogz\GstPortalApi\Development\GstPortalApi\target\classes started by Abdul in D:\Interlogz\GstPortalApi\Development\GstPortalApi)
+2023-05-15 19:34:51,708 DEBUG org.springframework.boot.StartupInfoLogger [restartedMain] Running with Spring Boot v2.5.2, Spring v5.3.8
+2023-05-15 19:34:51,708 INFO org.springframework.boot.SpringApplication [restartedMain] No active profile set, falling back to default profiles: default
+2023-05-15 19:35:25,669 DEBUG org.springframework.web.filter.GenericFilterBean [restartedMain] Filter 'requestLoggingFilter' configured for use
+2023-05-15 19:35:25,674 DEBUG org.springframework.web.filter.GenericFilterBean [restartedMain] Filter 'jwtRequestFilter' configured for use
+2023-05-15 19:35:31,631 INFO org.springframework.boot.StartupInfoLogger [restartedMain] Started GstPortalApiApplication in 40.954 seconds (JVM running for 43.138)
+2023-05-15 19:36:23,573 DEBUG org.springframework.web.filter.CommonsRequestLoggingFilter [http-nio-5050-exec-2] Before request [GET /api/v1/ping, client=0:0:0:0:0:0:0:1]
+2023-05-15 19:36:24,020 DEBUG org.springframework.web.filter.CommonsRequestLoggingFilter [http-nio-5050-exec-2] After request [GET /api/v1/ping, client=0:0:0:0:0:0:0:1]
+2023-05-15 19:37:23,940 DEBUG org.springframework.web.filter.CommonsRequestLoggingFilter [http-nio-5050-exec-7] Before request [POST /api/v1/auth/login, client=0:0:0:0:0:0:0:1]
+2023-05-15 19:37:26,007 DEBUG org.springframework.web.filter.CommonsRequestLoggingFilter [http-nio-5050-exec-7] After request [POST /api/v1/auth/login, client=0:0:0:0:0:0:0:1, payload={
+    "userId":"abdul",
+    "password":"1234",
+]
+2023-05-15 19:39:53,502 DEBUG org.springframework.web.filter.CommonsRequestLoggingFilter [http-nio-5050-exec-4] Before request [POST /api/v1/register/gst-portal, client=0:0:0:0:0:0:0:1]
+2023-05-15 19:40:05,181 ERROR org.hibernate.engine.jdbc.spi.SqlExceptionHelper [http-nio-5050-exec-4] Violation of UNIQUE KEY constraint 'UQ__UserGstD__C9F284567B107AEC'. Cannot insert duplicate key in object 'dbo.UserGstDetails'. The duplicate key value is (usr1).
+2023-05-15 19:40:10,200 DEBUG org.springframework.web.filter.CommonsRequestLoggingFilter [http-nio-5050-exec-4] After request [POST /api/v1/register/gst-portal, client=0:0:0:0:0:0:0:1, payload={
+    "userId":"abdul",
+    "userPassword":"1234]
+2023-05-15 19:41:33,334 DEBUG org.springframework.web.filter.CommonsRequestLoggingFilter [http-nio-5050-exec-2] Before request [POST /api/v1/einvoice/irn, client=0:0:0:0:0:0:0:1, user=abdul]
+2023-05-15 19:42:16,061 DEBUG org.springframework.web.filter.CommonsRequestLoggingFilter [http-nio-5050-exec-2] After request [POST /api/v1/einvoice/irn, client=0:0:0:0:0:0:0:1, user=abdul, payload={
+  "Version": "1.1",
+  "TranDtls": {
+    "TaxSch"]
+2023-05-15 19:43:02,037 DEBUG org.springframework.web.filter.CommonsRequestLoggingFilter [http-nio-5050-exec-10] Before request [POST /api/v1/einvoice/irn, client=0:0:0:0:0:0:0:1, user=abdul]
+2023-05-15 19:43:46,083 DEBUG org.springframework.web.filter.CommonsRequestLoggingFilter [http-nio-5050-exec-10] After request [POST /api/v1/einvoice/irn, client=0:0:0:0:0:0:0:1, user=abdul, payload={
+  "Version": "1.1",
+  "TranDtls": {
+    "TaxSch"]

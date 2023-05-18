@@ -12,7 +12,7 @@ import java.util.List;
 
 @Repository
 public interface UserMasterRepository extends JpaRepository<UserMaster, Long> {
-    String getGetAllByQuery = "SELECT t1.*,(SELECT name from RoleMaster WHERE id=t1.RoleMasterId) as RoleName from UserMaster t1";
+    String getGetAllByQuery = "SELECT t1.*,(SELECT name from RoleMaster WHERE id=t1.RoleMasterId) as RoleName from FIN_EIN_UserMaster t1";
 
 //    String getAllByQuery = "SELECT t2.Id,t2.UserId,t2.UserName,t2.Designation,t2.PhoneNumber,t2.Email,t2.Password" +
 //            ",t2.IsActive,t3.Name as RoleName,t3.Id as RoleMasterId FROM UserRole t1 join UserMaster t2 join RoleMaster t3 " +
@@ -24,6 +24,8 @@ public interface UserMasterRepository extends JpaRepository<UserMaster, Long> {
     UserMaster findById(Integer pk0);
 
     UserMaster findByUserId(String pk0);
+
+    UserMaster findByUserIdAndPassword(String userId,String password);
 
     @Query(value = getGetAllByQuery, nativeQuery = true)
     List<UserMasterPojo> findAllByQry();
