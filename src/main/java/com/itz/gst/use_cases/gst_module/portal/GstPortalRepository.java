@@ -23,7 +23,6 @@ public interface GstPortalRepository extends JpaRepository<UserGstDetails, Long>
     Integer checkTokenExp(String gst);
 
     @Modifying @Transactional
-    @Query("Update FIN_EIN_UserGstDetails set AuthToken = :auth,TokenExpiry = :tokenExp " +
-            " where Gstin = :gst")
-    void setTokenExpForGst(String gst,String auth, String tokenExp);
+    @Query(value = "Update FIN_EIN_UserGstDetails set AuthToken = :auth,TokenExpiry = :tokenExp where Gstin = :gst",nativeQuery = true)
+    void setTokenExpForGst(String gst,String auth,String tokenExp);
 }

@@ -17,7 +17,7 @@ RUN ls
 #COPY ./target/Iwas_Web_Service.jar app.jar
 #ADD ./target/Iwas_Web_Service.jar /developments/
 
-EXPOSE 9001
+EXPOSE 5050
 #ENTRYPOINT ["java","-jar","/target/Iwas_Web_Service.jar"]
 ENTRYPOINT ["java","-jar","Gst_Web_Service.jar"]
 
