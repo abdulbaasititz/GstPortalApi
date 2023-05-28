@@ -1,5 +1,6 @@
 package com.itz.gst.use_cases.gst_module.portal;
 
+import com.itz.gst.entity.GstType;
 import com.itz.gst.entity.UserGstDetails;
 import com.itz.gst.use_cases.gst_module.portal.dao.GstAuthDetDao;
 import org.springframework.data.jpa.repository.JpaRepository;
@@ -8,8 +9,10 @@ import org.springframework.data.jpa.repository.Query;
 import org.springframework.stereotype.Repository;
 import org.springframework.transaction.annotation.Transactional;
 
+import java.util.List;
+
 @Repository
-public interface GstPortalRepository extends JpaRepository<UserGstDetails, Long> {
+public interface UserGstDetailsRepository extends JpaRepository<UserGstDetails, Long> {
 
     @Query(value = "select usr.UserId,typ.Email,typ.ClientId,typ.ClientSecret,typ.IpAddress,typ.Url, " +
             "   gst.UserName,gst.Password,gst.Gstin,DATEDIFF(ss,GETDATE(),gst.TokenExpiry)as diff ,gst.AuthToken as tkn " +
@@ -25,4 +28,9 @@ public interface GstPortalRepository extends JpaRepository<UserGstDetails, Long>
     @Modifying @Transactional
     @Query(value = "Update FIN_EIN_UserGstDetails set AuthToken = :auth,TokenExpiry = :tokenExp where Gstin = :gst",nativeQuery = true)
     void setTokenExpForGst(String gst,String auth,String tokenExp);
+
+    List<UserGstDetails> findByUserMasterId(Integer usr);
+
+    @Transactional
+    void deleteByGstin(String gstId);
 }
