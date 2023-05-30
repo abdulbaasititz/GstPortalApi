@@ -15,7 +15,7 @@ import java.util.List;
 public interface UserGstDetailsRepository extends JpaRepository<UserGstDetails, Long> {
 
     @Query(value = "select usr.UserId,typ.Email,typ.ClientId,typ.ClientSecret,typ.IpAddress,typ.Url, " +
-            "   gst.UserName,gst.Password,gst.Gstin,DATEDIFF(ss, TokenExpiry, SWITCHOFFSET(GETDATE(),'+05:30'))as diff ,gst.AuthToken as tkn " +
+            "   gst.UserName,gst.Password,gst.Gstin,DATEDIFF(ss, SWITCHOFFSET(GETDATE(),'+05:30'),TokenExpiry)as diff ,gst.AuthToken as tkn " +
             "   from FIN_EIN_GstType typ,FIN_EIN_UserMaster usr,FIN_EIN_UserGstDetails gst where " +
             "   usr.GstTypeId= typ.Id and usr.Id = gst.UserMasterId and " +
             "   usr.UserId = :usrId and gst.Gstin = :gst",nativeQuery = true)
