@@ -179,12 +179,22 @@ public class GstPortalController {
         return resJson;
     }
 
+    @GetMapping(value = "/einvoice/gst/tkn")
+    public ResponseEntity<?> getGstDetailToken(HttpServletRequest request) throws Exception {
+        ClaimsDao claimsDao = claimsSet.getClaimsDetailsAfterSet(request.getHeader("Authorization"));
+        JsonNode tokenDet,irnDet;
+        //get token generate det
+        GstAuthDetDao gstAuthDetDao = userGstDetailsRepository.getGstAuthDet(claimsDao.getSub(), claimsDao.getGst());
+        return new ResponseEntity<>(new ResultDao(gstAuthDetDao, "Success", true), HttpStatus.OK);
+    }
+
     @GetMapping(value = "/einvoice/gst")
     public ResponseEntity<?> getGstDetail(HttpServletRequest request) throws Exception {
         ClaimsDao claimsDao = claimsSet.getClaimsDetailsAfterSet(request.getHeader("Authorization"));
         JsonNode tokenDet,irnDet;
         //get token generate det
         GstAuthDetDao gstAuthDetDao = userGstDetailsRepository.getGstAuthDet(claimsDao.getSub(), claimsDao.getGst());
+        System.out.println(gstAuthDetDao.getDiff());
         String authTkn = gstAuthDetDao.getTkn();
         if(gstAuthDetDao.getDiff()==null || gstAuthDetDao.getDiff() < 5){
             //gen new token
