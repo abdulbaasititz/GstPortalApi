@@ -20,6 +20,9 @@ import org.springframework.web.bind.annotation.*;
 import org.springframework.web.client.RestTemplate;
 
 import javax.servlet.http.HttpServletRequest;
+import java.text.ParseException;
+import java.text.SimpleDateFormat;
+import java.util.Date;
 import java.util.List;
 
 @RestController
@@ -34,6 +37,49 @@ public class GstPortalController {
     UserMasterRepository userMasterRepository;
     @Autowired
     GstTypeRepository gstTypeRepository;
+
+    @PostMapping(value = "/einvoice/irn")
+    public ResponseEntity<?> generateIrnDet(HttpServletRequest request,@RequestBody GenerateIrnDao val) throws Exception {
+        ClaimsDao claimsDao = claimsSet.getClaimsDetailsAfterSet(request.getHeader("Authorization"));
+        JsonNode tokenDet,irnDet;
+        //get token generate det
+        GstAuthDetDao gstAuthDetDao = userGstDetailsRepository.getGstAuthDet(claimsDao.getSub(), claimsDao.getGst());
+        if(gstAuthDetDao == null)
+            throw new Exception("Given gst not found");
+        String authTkn = gstAuthDetDao.getTkn();
+        if(gstAuthDetDao.getTokenExpiry()==null || hasTokenExpiry(gstAuthDetDao.getTokenExpiry())){
+            //gen new token
+            tokenDet = getAuthDetails(gstAuthDetDao);
+            //set new token
+            userGstDetailsRepository.setTokenExpForGst(claimsDao.getGst(),tokenDet.get("AuthToken").textValue(),tokenDet.get("TokenExpiry").textValue());
+            authTkn = tokenDet.get("AuthToken").textValue();
+        }
+        irnDet = genIrnNo(val,gstAuthDetDao,authTkn);
+
+        return new ResponseEntity<>(new ResultDao(irnDet, "Success", true), HttpStatus.OK);
+    }
+
+    @GetMapping(value = "/einvoice/gst")
+    public ResponseEntity<?> getGstDetail(HttpServletRequest request) throws Exception {
+        ClaimsDao claimsDao = claimsSet.getClaimsDetailsAfterSet(request.getHeader("Authorization"));
+        JsonNode tokenDet,irnDet;
+        //get token generate det
+        GstAuthDetDao gstAuthDetDao = userGstDetailsRepository.getGstAuthDet(claimsDao.getSub(), claimsDao.getGst());
+        System.out.println(gstAuthDetDao.getDiff());
+        String authTkn = gstAuthDetDao.getTkn();
+        if(gstAuthDetDao.getDiff()==null || hasTokenExpiry(gstAuthDetDao.getTokenExpiry())){
+            //gen new token
+            tokenDet = getAuthDetails(gstAuthDetDao);
+            //set new token
+            userGstDetailsRepository.setTokenExpForGst(claimsDao.getGst(),tokenDet.get("AuthToken").textValue(),tokenDet.get("TokenExpiry").textValue());
+            authTkn = tokenDet.get("AuthToken").textValue();
+        }
+        irnDet = getGstDet(gstAuthDetDao,authTkn);
+
+        return new ResponseEntity<>(new ResultDao(irnDet, "Success", true), HttpStatus.OK);
+    }
+
+
 
     private HttpHeaders createHttpHeaders(GstAuthDetDao gstAth) {
         //String encrypt = new BaseCrypto().base64Encrypt(authorize);
@@ -67,40 +113,8 @@ public class GstPortalController {
         // object mapper
         System.out.println(resJson);
         //AuthRes authRes = new ObjectMapper().readValue((DataInput) resJson.get("data"),AuthRes.class);
+        assert resJson != null;
         return resJson.get("data");
-    }
-
-    @GetMapping(path = "/gst/{gstId}")
-    public ResponseEntity<?> getGstAuth(HttpServletRequest request
-            , @PathVariable(name = "gstId") String gstId) throws Exception {
-        ClaimsDao claimsDao = claimsSet.getClaimsDetailsAfterSet(request.getHeader("Authorization"));
-        //check token exp
-        Integer diff = userGstDetailsRepository.checkTokenExp(claimsDao.getGst());
-        if(diff==null || diff < 10){
-            //get token generate det
-            GstAuthDetDao gstAuthDetDao = userGstDetailsRepository.getGstAuthDet(claimsDao.getSub(), claimsDao.getGst());
-            //gen token
-            JsonNode res = getAuthDetails(gstAuthDetDao);
-            //set token det
-            userGstDetailsRepository.setTokenExpForGst(claimsDao.getGst(),res.get("AuthToken").textValue(),res.get("TokenExpiry").textValue());
-            System.out.println(res);
-        }
-
-
-        return new ResponseEntity<>(new ResultDao("", "Success", true), HttpStatus.OK);
-    }
-
-    @PostMapping(value = "register/gst-portal")
-    public ResponseEntity<?> userMasterSet(HttpServletRequest request,@RequestBody UserGstDetailsDao val) {
-        UserMaster userMaster = userMasterRepository.findByUserIdAndPassword(val.getUserId(),val.getUserPassword());
-        UserGstDetails userGstDetails = new UserGstDetails();
-        userGstDetails.setUserMasterId(userMaster.getId());
-        userGstDetails.setGstin(val.getGstin());
-        userGstDetails.setUserName(val.getUserName());
-        userGstDetails.setPassword(val.getPassword());
-        userGstDetails.setEmail(val.getEmail());
-        userGstDetailsRepository.save(userGstDetails);
-        return new ResponseEntity<>(new ResultDao("Saved Successfully", "Success", true), HttpStatus.OK);
     }
 
     private HttpHeaders createHttpHeadersForIrn(GstAuthDetDao gstAth,String tkn) {
@@ -138,23 +152,13 @@ public class GstPortalController {
         return resJson;
     }
 
-    @PostMapping(value = "/einvoice/irn")
-    public ResponseEntity<?> generateIrnDet(HttpServletRequest request,@RequestBody GenerateIrnDao val) throws Exception {
-        ClaimsDao claimsDao = claimsSet.getClaimsDetailsAfterSet(request.getHeader("Authorization"));
-        JsonNode tokenDet,irnDet;
-        //get token generate det
-        GstAuthDetDao gstAuthDetDao = userGstDetailsRepository.getGstAuthDet(claimsDao.getSub(), claimsDao.getGst());
-        String authTkn = gstAuthDetDao.getTkn();
-        if(gstAuthDetDao.getDiff()==null || gstAuthDetDao.getDiff() < 5){
-            //gen new token
-            tokenDet = getAuthDetails(gstAuthDetDao);
-            //set new token
-            userGstDetailsRepository.setTokenExpForGst(claimsDao.getGst(),tokenDet.get("AuthToken").textValue(),tokenDet.get("TokenExpiry").textValue());
-            authTkn = tokenDet.get("AuthToken").textValue();
-        }
-        irnDet = genIrnNo(val,gstAuthDetDao,authTkn);
-
-        return new ResponseEntity<>(new ResultDao(irnDet, "Success", true), HttpStatus.OK);
+    private boolean hasTokenExpiry(String tknExpiry) throws ParseException {
+        SimpleDateFormat sdf = new SimpleDateFormat("yyyy-MM-dd HH:mm:ss.SSS");
+        Date dateFromString = sdf.parse(tknExpiry);
+        Date currentDate = new Date();
+        long differenceInSeconds = (dateFromString.getTime() - currentDate.getTime()) / 1000;
+        LoggerConfig.logger.info("Token Expiry duration as {}",differenceInSeconds);
+        return differenceInSeconds < 5;
     }
 
     public JsonNode getGstDet(GstAuthDetDao gstAth,String tkn) throws Exception {
@@ -180,47 +184,56 @@ public class GstPortalController {
     }
 
     @GetMapping(value = "/einvoice/gst/tkn")
-    public ResponseEntity<?> getGstDetailToken(HttpServletRequest request) throws Exception {
+    public ResponseEntity<?> getGstDetailToken(HttpServletRequest request) {
         ClaimsDao claimsDao = claimsSet.getClaimsDetailsAfterSet(request.getHeader("Authorization"));
-        JsonNode tokenDet,irnDet;
         //get token generate det
         GstAuthDetDao gstAuthDetDao = userGstDetailsRepository.getGstAuthDet(claimsDao.getSub(), claimsDao.getGst());
         return new ResponseEntity<>(new ResultDao(gstAuthDetDao, "Success", true), HttpStatus.OK);
-    }
-
-    @GetMapping(value = "/einvoice/gst")
-    public ResponseEntity<?> getGstDetail(HttpServletRequest request) throws Exception {
-        ClaimsDao claimsDao = claimsSet.getClaimsDetailsAfterSet(request.getHeader("Authorization"));
-        JsonNode tokenDet,irnDet;
-        //get token generate det
-        GstAuthDetDao gstAuthDetDao = userGstDetailsRepository.getGstAuthDet(claimsDao.getSub(), claimsDao.getGst());
-        System.out.println(gstAuthDetDao.getDiff());
-        String authTkn = gstAuthDetDao.getTkn();
-        if(gstAuthDetDao.getDiff()==null || gstAuthDetDao.getDiff() < 5){
-            //gen new token
-            tokenDet = getAuthDetails(gstAuthDetDao);
-            //set new token
-            userGstDetailsRepository.setTokenExpForGst(claimsDao.getGst(),tokenDet.get("AuthToken").textValue(),tokenDet.get("TokenExpiry").textValue());
-            authTkn = tokenDet.get("AuthToken").textValue();
-        }
-        irnDet = getGstDet(gstAuthDetDao,authTkn);
-
-        return new ResponseEntity<>(new ResultDao(irnDet, "Success", true), HttpStatus.OK);
     }
 
     @GetMapping(value="/einvoice/all")
     public ResponseEntity<?> getAllGst(HttpServletRequest request) {
-        ClaimsDao claimsDao = claimsSet.getClaimsDetailsAfterSet(request.getHeader("Authorization"));
         List<UserGstDetails> gstAuthDetDao = userGstDetailsRepository.findAll();
-        //List<GstType> gstTypes = gstTypeRepository.findAll();
-        //List<UserGstDetails> gstAuthDetDao =userGstDetailsRepository.findByUserMasterId(Integer.valueOf(claimsDao.getUsr()));
         return new ResponseEntity<>(new ResultDao(gstAuthDetDao, "Success", true), HttpStatus.OK);
     }
+
     @DeleteMapping(value = "/einvoice/gst/{gstId}")
     public ResponseEntity<?> removeGivenGst(HttpServletRequest request,@PathVariable String gstId) {
-        ClaimsDao claimsDao = claimsSet.getClaimsDetailsAfterSet(request.getHeader("Authorization"));
         userGstDetailsRepository.deleteByGstin(gstId);
         return new ResponseEntity<>(gstId+" Deleted Successfully", HttpStatus.OK);
+    }
+
+    @GetMapping(path = "/gst/{gstId}")
+    public ResponseEntity<?> getGstAuth(HttpServletRequest request
+            , @PathVariable(name = "gstId") String gstId) throws Exception {
+        ClaimsDao claimsDao = claimsSet.getClaimsDetailsAfterSet(request.getHeader("Authorization"));
+        //check token exp
+        Integer diff = userGstDetailsRepository.checkTokenExp(claimsDao.getGst());
+        if(diff==null || diff < 10){
+            //get token generate det
+            GstAuthDetDao gstAuthDetDao = userGstDetailsRepository.getGstAuthDet(claimsDao.getSub(), claimsDao.getGst());
+            //gen token
+            JsonNode res = getAuthDetails(gstAuthDetDao);
+            //set token det
+            userGstDetailsRepository.setTokenExpForGst(claimsDao.getGst(),res.get("AuthToken").textValue(),res.get("TokenExpiry").textValue());
+            System.out.println(res);
+        }
+
+
+        return new ResponseEntity<>(new ResultDao("", "Success", true), HttpStatus.OK);
+    }
+
+    @PostMapping(value = "register/gst-portal")
+    public ResponseEntity<?> userMasterSet(HttpServletRequest request,@RequestBody UserGstDetailsDao val) {
+        UserMaster userMaster = userMasterRepository.findByUserIdAndPassword(val.getUserId(),val.getUserPassword());
+        UserGstDetails userGstDetails = new UserGstDetails();
+        userGstDetails.setUserMasterId(userMaster.getId());
+        userGstDetails.setGstin(val.getGstin());
+        userGstDetails.setUserName(val.getUserName());
+        userGstDetails.setPassword(val.getPassword());
+        userGstDetails.setEmail(val.getEmail());
+        userGstDetailsRepository.save(userGstDetails);
+        return new ResponseEntity<>(new ResultDao("Saved Successfully", "Success", true), HttpStatus.OK);
     }
 
 }

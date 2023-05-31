@@ -10,6 +10,7 @@ public interface GstAuthDetDao {
     String getUserName();
     String getPassword();
     String getGstin();
-    Integer getDiff();
+    Float getDiff();
     String getTkn();
+    String getTokenExpiry();
 }
