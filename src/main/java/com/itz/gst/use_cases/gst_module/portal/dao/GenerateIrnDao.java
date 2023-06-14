@@ -168,7 +168,7 @@ class ItemList{
     @JsonProperty("Qty")
     public double qty;
     @JsonProperty("FreeQty")
-    public int freeQty;
+    public double freeQty;
     @JsonProperty("Unit")
     public String unit;
     @JsonProperty("UnitPrice")
@@ -176,9 +176,9 @@ class ItemList{
     @JsonProperty("TotAmt")
     public double totAmt;
     @JsonProperty("Discount")
-    public int discount;
+    public double discount;
     @JsonProperty("PreTaxVal")
-    public int preTaxVal;
+    public double preTaxVal;
     @JsonProperty("AssAmt")
     public double assAmt;
     @JsonProperty("GstRt")
@@ -186,23 +186,23 @@ class ItemList{
     @JsonProperty("IgstAmt")
     public double igstAmt;
     @JsonProperty("CgstAmt")
-    public int cgstAmt;
+    public double cgstAmt;
     @JsonProperty("SgstAmt")
-    public int sgstAmt;
+    public double sgstAmt;
     @JsonProperty("CesRt")
-    public int cesRt;
+    public double cesRt;
     @JsonProperty("CesAmt")
     public double cesAmt;
     @JsonProperty("CesNonAdvlAmt")
-    public int cesNonAdvlAmt;
+    public double cesNonAdvlAmt;
     @JsonProperty("StateCesRt")
-    public int stateCesRt;
+    public double stateCesRt;
     @JsonProperty("StateCesAmt")
     public double stateCesAmt;
     @JsonProperty("StateCesNonAdvlAmt")
-    public int stateCesNonAdvlAmt;
+    public double stateCesNonAdvlAmt;
     @JsonProperty("OthChrg")
-    public int othChrg;
+    public double othChrg;
     @JsonProperty("TotItemVal")
     public double totItemVal;
     @JsonProperty("OrdLineRef")
@@ -236,11 +236,11 @@ class PayDtls{
     @JsonProperty("DirDr")
     public String dirDr;
     @JsonProperty("CrDay")
-    public int crDay;
+    public double crDay;
     @JsonProperty("PaidAmt")
-    public int paidAmt;
+    public double paidAmt;
     @JsonProperty("PaymtDue")
-    public int paymtDue;
+    public double paymtDue;
 }
 @Getter @Setter
 class PrecDocDtl{
@@ -320,7 +320,7 @@ class EwbDtls{
     @JsonProperty("TransName")
     public String transName;
     @JsonProperty("Distance")
-    public int distance;
+    public double distance;
     @JsonProperty("TransDocNo")
     public String transDocNo;
     @JsonProperty("TransDocDt")
