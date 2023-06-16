@@ -70,7 +70,7 @@ public class GstPortalController {
             HttpEntity<String> entity = new HttpEntity<>("body", headers);
 
             resJson = restTemplate.exchange( gstAth.getUrl() +  //"https://api.mastergst.com/einvoice"
-                    "/einvoice/type/GETIRNBYDOCDETAILS/version/V1_03?param1="+val.getDocType()+"&email="+gstAth.getEmail(), HttpMethod.GET, entity, JsonNode.class).getBody(); //itzabdulbaasit@gmail.com
+                    "/type/GETIRNBYDOCDETAILS/version/V1_03?param1="+val.getDocType()+"&email="+gstAth.getEmail(), HttpMethod.GET, entity, JsonNode.class).getBody(); //itzabdulbaasit@gmail.com
         } catch (Exception e) {
             LoggerConfig.logger.error(e.getMessage());
             throw new Exception(e.getMessage());
