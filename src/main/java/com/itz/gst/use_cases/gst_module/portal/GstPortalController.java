@@ -12,6 +12,7 @@ import com.itz.gst.helpers.configs.LoggerConfig;
 import com.itz.gst.helpers.configs.ObjectMapperConfig;
 import com.itz.gst.use_cases.aaa_module.user_master.UserMasterRepository;
 import com.itz.gst.use_cases.gst_module.portal.dao.GenerateIrnDao;
+import com.itz.gst.use_cases.gst_module.portal.dao.GetIrnDocDec;
 import com.itz.gst.use_cases.gst_module.portal.dao.GstAuthDetDao;
 import com.itz.gst.use_cases.gst_module.portal.dao.UserGstDetailsDao;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -37,6 +38,63 @@ public class GstPortalController {
     UserMasterRepository userMasterRepository;
     @Autowired
     GstTypeRepository gstTypeRepository;
+
+    @PostMapping(value = "/einvoice/get-irn/doc")
+    public ResponseEntity<?> getIrnDetByDocDet(HttpServletRequest request,@RequestBody GetIrnDocDec val) throws Exception {
+        ClaimsDao claimsDao = claimsSet.getClaimsDetailsAfterSet(request.getHeader("Authorization"));
+        JsonNode tokenDet,irnDet;
+        //get token generate det
+        GstAuthDetDao gstAuthDetDao = userGstDetailsRepository.getGstAuthDet(claimsDao.getSub(), claimsDao.getGst());
+        if(gstAuthDetDao == null)
+            throw new Exception("Given gst not found");
+        String authTkn = gstAuthDetDao.getTkn();
+        if(gstAuthDetDao.getTokenExpiry()==null || hasTokenExpiry(gstAuthDetDao.getTokenExpiry())){
+            //gen new token
+            tokenDet = getAuthDetails(gstAuthDetDao);
+            //set new token
+            userGstDetailsRepository.setTokenExpForGst(claimsDao.getGst(),tokenDet.get("AuthToken").textValue(),tokenDet.get("TokenExpiry").textValue());
+            authTkn = tokenDet.get("AuthToken").textValue();
+        }
+        irnDet = getIrnNo(val,gstAuthDetDao,authTkn);
+
+        return new ResponseEntity<>(new ResultDao(irnDet, "Success", true), HttpStatus.OK);
+    }
+
+    public JsonNode getIrnNo(GetIrnDocDec val,GstAuthDetDao gstAth,String tkn) throws Exception {
+        String res;
+        JsonNode resJson;
+        RestTemplate restTemplate = new RestTemplate();
+        ResponseEntity<JsonNode> response;
+        try {
+            HttpHeaders headers = createHttpHeadersForGetIrn(gstAth,tkn,val);
+            HttpEntity<String> entity = new HttpEntity<>("body", headers);
+
+            resJson = restTemplate.exchange( gstAth.getUrl() +  //"https://api.mastergst.com/einvoice"
+                    "/einvoice/type/GETIRNBYDOCDETAILS/version/V1_03?param1="+val.getDocType()+"&email="+gstAth.getEmail(), HttpMethod.GET, entity, JsonNode.class).getBody(); //itzabdulbaasit@gmail.com
+        } catch (Exception e) {
+            LoggerConfig.logger.error(e.getMessage());
+            throw new Exception(e.getMessage());
+        }
+        // object mapper
+        System.out.println(resJson);
+        //AuthRes authRes = new ObjectMapper().readValue((DataInput) resJson.get("data"),AuthRes.class);
+        return resJson;
+    }
+
+    private HttpHeaders createHttpHeadersForGetIrn(GstAuthDetDao gstAth,String tkn,GetIrnDocDec val) {
+        //String encrypt = new BaseCrypto().base64Encrypt(authorize);
+        HttpHeaders headers = new HttpHeaders();
+//        headers.setContentType(MediaType.APPLICATION_JSON);
+        headers.add("username", gstAth.getUserName()); //"mastergst"
+        headers.add("auth-token", tkn); //"tkn"
+        headers.add("ip_address", gstAth.getIpAddress()); //"117.192.158.80"
+        headers.add("client_id", gstAth.getClientId()); //"06b390bc-6704-4fdf-b587-5b86caa7f931"
+        headers.add("client_secret", gstAth.getClientSecret()); //"bc4312c6-4a4d-475c-a8d6-57eab18c15b2"
+        headers.add("gstin", gstAth.getGstin()); //"29AABCT1332L000"
+        headers.add("docnum", val.getDocNum()); //"INV-1426"
+        headers.add("docdate", val.getDocDate()); //"14/06/2023"
+        return headers;
+    }
 
     @PostMapping(value = "/einvoice/irn")
     public ResponseEntity<?> generateIrnDet(HttpServletRequest request,@RequestBody GenerateIrnDao val) throws Exception {
