@@ -9,7 +9,7 @@ public class CancelIrnDocDec {
     @JsonProperty("Irn")
     private String irn;
     @JsonProperty("CnlRsn")
-    private float cnlRsn;
+    private String cnlRsn;
     @JsonProperty("CnlRem")
     private String cnlRem;
 }
