@@ -2,7 +2,6 @@ package com.itz.gst.use_cases.gst_module.portal;
 
 import com.fasterxml.jackson.databind.JsonNode;
 import com.fasterxml.jackson.databind.ObjectMapper;
-import com.itz.gst.entity.GstType;
 import com.itz.gst.entity.UserGstDetails;
 import com.itz.gst.entity.UserMaster;
 import com.itz.gst.helpers.common.results.ResultDao;
@@ -11,10 +10,7 @@ import com.itz.gst.helpers.common.token.ClaimsSet;
 import com.itz.gst.helpers.configs.LoggerConfig;
 import com.itz.gst.helpers.configs.ObjectMapperConfig;
 import com.itz.gst.use_cases.aaa_module.user_master.UserMasterRepository;
-import com.itz.gst.use_cases.gst_module.portal.dao.GenerateIrnDao;
-import com.itz.gst.use_cases.gst_module.portal.dao.GetIrnDocDec;
-import com.itz.gst.use_cases.gst_module.portal.dao.GstAuthDetDao;
-import com.itz.gst.use_cases.gst_module.portal.dao.UserGstDetailsDao;
+import com.itz.gst.use_cases.gst_module.portal.dao.*;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.*;
 import org.springframework.web.bind.annotation.*;
@@ -38,6 +34,61 @@ public class GstPortalController {
     UserMasterRepository userMasterRepository;
     @Autowired
     GstTypeRepository gstTypeRepository;
+
+    @PostMapping(value = "/einvoice/eway")
+    public ResponseEntity<?> generateEWayBill(HttpServletRequest request,@RequestBody GenerateEWayDao val) throws Exception {
+        ClaimsDao claimsDao = claimsSet.getClaimsDetailsAfterSet(request.getHeader("Authorization"));
+        JsonNode tokenDet,eWayDet;
+        //get token generate det
+        GstAuthDetDao gstAuthDetDao = userGstDetailsRepository.getGstAuthDet(claimsDao.getSub(), claimsDao.getGst());
+        if(gstAuthDetDao == null)
+            throw new Exception("Given gst not found");
+        String authTkn = gstAuthDetDao.getTkn();
+        if(gstAuthDetDao.getTokenExpiry()==null || hasTokenExpiry(gstAuthDetDao.getTokenExpiry())){
+            //gen new token
+            tokenDet = getAuthDetails(gstAuthDetDao);
+            //set new token
+            userGstDetailsRepository.setTokenExpForGst(claimsDao.getGst(),tokenDet.get("AuthToken").textValue(),tokenDet.get("TokenExpiry").textValue());
+            authTkn = tokenDet.get("AuthToken").textValue();
+        }
+        eWayDet = genEWayNo(val,gstAuthDetDao,authTkn);
+
+        return new ResponseEntity<>(new ResultDao(eWayDet, "Success", true), HttpStatus.OK);
+    }
+
+    public JsonNode genEWayNo(GenerateEWayDao val,GstAuthDetDao gstAth,String tkn) throws Exception {
+        String res;
+        JsonNode resJson;
+        RestTemplate restTemplate = new RestTemplate();
+        ResponseEntity<JsonNode> response;
+        try {
+            HttpHeaders headers = createHttpHeadersForGetEWay(gstAth,tkn);
+            HttpEntity<GenerateEWayDao> entity = new HttpEntity<>(val, headers);
+
+            resJson = restTemplate.exchange( gstAth.getUrl() +  //"https://api.mastergst.com/einvoice"
+                    "/type/GENERATE_EWAYBILL/version/V1_03?email="+gstAth.getEmail(), HttpMethod.POST, entity, JsonNode.class).getBody(); //itzabdulbaasit@gmail.com
+        } catch (Exception e) {
+            LoggerConfig.logger.error(e.getMessage());
+            throw new Exception(e.getMessage());
+        }
+        // object mapper
+        System.out.println(resJson);
+        //AuthRes authRes = new ObjectMapper().readValue((DataInput) resJson.get("data"),AuthRes.class);
+        return resJson;
+    }
+
+    private HttpHeaders createHttpHeadersForGetEWay(GstAuthDetDao gstAth,String tkn) {
+        //String encrypt = new BaseCrypto().base64Encrypt(authorize);
+        HttpHeaders headers = new HttpHeaders();
+//        headers.setContentType(MediaType.APPLICATION_JSON);
+        headers.add("username", gstAth.getUserName()); //"mastergst"
+        headers.add("auth-token", tkn); //"tkn"
+        headers.add("ip_address", gstAth.getIpAddress()); //"117.192.158.80"
+        headers.add("client_id", gstAth.getClientId()); //"06b390bc-6704-4fdf-b587-5b86caa7f931"
+        headers.add("client_secret", gstAth.getClientSecret()); //"bc4312c6-4a4d-475c-a8d6-57eab18c15b2"
+        headers.add("gstin", gstAth.getGstin()); //"29AABCT1332L000"
+        return headers;
+    }
 
     @PostMapping(value = "/einvoice/get-irn/doc")
     public ResponseEntity<?> getIrnDetByDocDet(HttpServletRequest request,@RequestBody GetIrnDocDec val) throws Exception {
