@@ -9,7 +9,7 @@ public class GenerateEWayDao {
     @JsonProperty("Irn")
     private String irn;
     @JsonProperty("Distance")
-    private double distance;
+    private int distance;
     @JsonProperty("TransMode")
     private String transMode;
     @JsonProperty("TransId")
